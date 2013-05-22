@@ -35,3 +35,39 @@ div.container a.brand {
     margin-left: 0;
     padding: 8px 20px 12px 40px;
 }
+a{ color: #000;
+    text-decoration: none;
+    background-color: #cccccc;
+    box-shadow: 1px 1px 2px #666;
+    text-shadow: 1px 1px 2px #fff;
+    border-radius: 3px 3px 3px 3px;
+    padding: 3px 10px 3px 10px;
+}
+a:hover{
+    color: #fff;
+    text-decoration: none;
+    background-color: #cccccc;
+    box-shadow: 1px 1px 2px #666;
+    text-shadow: 1px 1px 2px #000;
+    border-radius: 3px 3px 3px 3px;
+    padding: 3px 10px 3px 10px;
+    text-decoration: none;
+}
+.addButton{ color: #000;
+    text-decoration: none;
+    background-color: #cccccc;
+    box-shadow: 1px 1px 2px #666;
+    text-shadow: 1px 1px 2px #fff;
+    border-radius: 3px 3px 3px 3px;
+    padding: 3px 10px 3px 10px;
+}
+.addButton:hover{
+    color: #fff;
+    text-decoration: none;
+    background-color: #cccccc;
+    box-shadow: 1px 1px 2px #666;
+    text-shadow: 1px 1px 2px #000;
+    border-radius: 3px 3px 3px 3px;
+    padding: 3px 10px 3px 10px;
+    text-decoration: none;
+}
