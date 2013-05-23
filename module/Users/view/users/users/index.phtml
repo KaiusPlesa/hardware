@@ -4,18 +4,15 @@ $title = 'Users List';
 $this->headTitle($title);
 ?>
 <h1><?php echo $this->escapeHtml($title); ?></h1>
-<p>
-    <a href="<?php echo $this->url('users', array('action'=>'add'));?>">Sign Up</a>
-</p>
 
-<table class="table">
+<table class="tableUsers">
 <tr>
     <th>Name</th>
     <th>Username</th>
     <th>Email Address</th>
     <th>User Type</th>
     <th>Last Login</th>
-    <th>&nbsp;</th>
+    <th colspan="2">Actions</th>
 </tr>
 <?php foreach ($users as $user) : ?>
 <tr>      
@@ -28,11 +25,13 @@ $this->headTitle($title);
     <td><?php echo $this->escapeHtml($user->email);?></td>
     <td><?php echo $type;?></td>
     <td><?php echo date("l jS F Y - g:ia",$this->escapeHtml($user->last_login));?></td>
-    <td>
+    <td class="userTableActions">
         <a href="<?php echo $this->url('users',
-            array('action'=>'edit', 'id_user' => $user->id_user));?>">Edit</a>
+            array('action'=>'edit', 'id_user' => $user->id_user));?>"><li>Edit</li></a>
+    </td>
+    <td class="userTableActions">    
         <a href="<?php echo $this->url('users',
-            array('action'=>'delete', 'id_user' => $user->id_user));?>">Delete</a>
+            array('action'=>'delete', 'id_user' => $user->id_user));?>"><li>Delete</li></a>
     </td>
 </tr>
 <?php endforeach; ?>
