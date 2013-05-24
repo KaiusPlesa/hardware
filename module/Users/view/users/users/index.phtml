@@ -18,7 +18,7 @@ $this->headTitle($title);
 <tr>      
     <?php 
         $type = $this->escapeHtml($user->user_type);
-        $type == 1 ? $type = 'Admin': $type='Member';
+        $type == 1 ? $type = 'Admin': $type='Member'; 
      ?> 
     <td><?php echo $this->escapeHtml($user->name);?></td>
     <td><?php echo $this->escapeHtml($user->username);?></td>
