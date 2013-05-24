@@ -4,7 +4,8 @@ namespace Users\Controller;
 use Zend\Mvc\Controller\AbstractActionController;
 use Zend\View\Model\ViewModel;
 use Users\Model\Users;          
-use Users\Form\UsersForm;
+use Users\Form\SigninForm;
+use Users\Form\EditUserForm;
 
 class UsersController extends AbstractActionController
 {
@@ -26,10 +27,10 @@ class UsersController extends AbstractActionController
         ));
     }
 
-    public function addAction()
+    public function signinAction()
     {
-        $form = new UsersForm();
-        $form->get('submit')->setValue('Add');
+        $form = new SigninForm();
+        $form->get('submit')->setValue('Sign In');
 
         $request = $this->getRequest();
         if ($request->isPost()) {
@@ -53,7 +54,7 @@ class UsersController extends AbstractActionController
               $id_user = (int) $this->params()->fromRoute('id_user', 0);
         if (!$id_user) {
             return $this->redirect()->toRoute('users', array(
-                'action' => 'add'
+                'action' => 'edit'
             ));
         }
 
@@ -68,17 +69,18 @@ class UsersController extends AbstractActionController
             ));
         }
 
-        $form  = new UsersForm();
+        $form  = new EditUserForm();
         $form->bind($users);
         $form->get('submit')->setAttribute('value', 'Edit');
 
         $request = $this->getRequest();
         if ($request->isPost()) {
-            $form->setInputFilter($users->getInputFilter());
+      
+            $form->setInputFilter($users->getInputFilterEdit());
             $form->setData($request->getPost());
-            print_r($request->getPost());
+            
             if ($form->isValid()) {
-                
+                 
                 $this->getUsersTable()->editUsers($form->getData());
 
                 // Redirect to list of users
@@ -91,7 +93,7 @@ class UsersController extends AbstractActionController
             'form' => $form,
         );
     }
-
+    
     public function deleteAction()
     {
         $id_user = (int) $this->params()->fromRoute('id_user', 0);

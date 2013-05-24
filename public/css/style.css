@@ -46,6 +46,13 @@ div.container a.brand {
     background: url("../img/zf2-logo.png") no-repeat scroll 0 10px transparent;
     margin-left: 0;
     padding: 8px 20px 12px 40px;
+    color:rgb(34, 188, 226);
+}
+div.container a.brand:hover {
+    background: url("../img/zf2-logo.png") no-repeat scroll 0 10px transparent;
+    margin-left: 0;
+    padding: 8px 20px 12px 40px;
+    color:rgb(245, 210, 25);
 }
 .tableUsers li{ 
     color: #000;
@@ -59,6 +66,7 @@ div.container a.brand {
     text-align: center;
     -webkit-box-shadow: 0 0 8px lightblue;
     box-shadow: 0 0 8px lightblue;
+    margin: 0 auto;
 }
 .tableUsers li:hover{
     color: rgb(12, 0, 0);
@@ -71,30 +79,13 @@ div.container a.brand {
     list-style: none;
     text-align: center;
     -webkit-box-shadow: 0 0 8px lightblue;
-    box-shadow: 0 0 8px lightblue;    
+    box-shadow: 0 0 8px lightblue;
+    margin: 0 auto;    
 }
 .tableUsers a{
     text-decoration: none;
 }
 .tableUsers a:hover{
-    text-decoration: none;
-}
-.addButton{ color: #000;
-    text-decoration: none;
-    background-color: #cccccc;
-    box-shadow: 1px 1px 2px #666;
-    text-shadow: 1px 1px 2px #fff;
-    border-radius: 3px 3px 3px 3px;
-    padding: 3px 10px 3px 10px;
-}
-.addButton:hover{
-    color: #fff;
-    text-decoration: none;
-    background-color: #cccccc;
-    box-shadow: 1px 1px 2px #666;
-    text-shadow: 1px 1px 2px #000;
-    border-radius: 3px 3px 3px 3px;
-    padding: 3px 10px 3px 10px;
     text-decoration: none;
 }
 .tableUsers{
@@ -173,6 +164,43 @@ hr{
     text-align:left;
     -webkit-text-shadow: 0 0 8px lightblue;
     text-shadow: 0 0 8px lightblue; 
+    text-align: center;
+}
+#carbonForm input{
+    float: right;
+    margin-right: 30px;
+}
+#carbonForm span{
+    margin-left: 30px;
+}
+#carbonForm .addButton{
+    margin:0 auto;
+    float: none;
+    color: #000;
+    text-decoration: none;
+    background-color: rgb(34, 188, 226);
+    text-shadow: 1px 1px 2px #fff;
+    border-radius: 1px 1px 1px 1px;
+    padding: 3px 10px 3px 10px;
+    width: 60px;
+    list-style: none;
+    text-align: center;
+
+    border:none;
+}
+#carbonForm .addButton:hover{
+    color: rgb(12, 0, 0);
+    text-decoration: none;
+    background-color: rgb(245, 210, 25);
+    text-shadow: 1px 1px 2px rgb(245, 245, 245);
+    border-radius: 1px 1px 1px 1px;
+    padding: 3px 10px 3px 10px;
+    width: 60px;
+    list-style: none;
+    text-align: center;
+    -webkit-box-shadow: 0 0 8px lightblue;
+    box-shadow: 0 0 8px lightblue; 
+    border: :none;
 }
 
 .fieldContainer{
@@ -316,4 +344,39 @@ h1{
     text-shadow: 0 0 8px lightblue;
     font-size: 16px;
 }
+.delButtonConf{
+    margin:0 auto;
+    float: none;
+    color: #000;
+    text-decoration: none;
+    background-color: rgb(34, 188, 226);
+    text-shadow: 1px 1px 2px #fff;
+    border-radius: 1px 1px 1px 1px;
+    padding: 3px 10px 3px 10px;
+    width: 60px!important;
+    list-style: none;
+    text-align: center;
+
+    border:none;
+}
+.delButtonConf:hover{
+    color: rgb(12, 0, 0);
+    text-decoration: none;
+    background-color: rgb(245, 210, 25);
+    text-shadow: 1px 1px 2px rgb(245, 245, 245);
+    border-radius: 1px 1px 1px 1px;
+    padding: 3px 10px 3px 10px;
+    width: 60px!important;
+    list-style: none;
+    text-align: center;
+    -webkit-box-shadow: 0 0 8px lightblue;
+    box-shadow: 0 0 8px lightblue; 
+    border: :none;
+}
+.delConf{
+    width:200px;
+    margin:0 auto;
+    text-align: center;
+}
+
 

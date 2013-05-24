@@ -53,13 +53,13 @@ class UsersTable
     }
         public function editUsers(Users $users)
     {
-        $data = array(
+        $data = array(           
             'name' => $users->name,
             'username'  => $users->username,           
             'email'  => $users->email,
         );
-
-        $id_user = (int)$users->id;
+         
+        $id_user = (int)$users->id_user;
         if ($id_user == 0) {
             $this->tableGateway->insert($data);
         } else {

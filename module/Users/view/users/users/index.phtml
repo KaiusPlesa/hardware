@@ -28,11 +28,11 @@ $this->headTitle($title);
     <td class="userTableActions">
         <a href="<?php echo $this->url('users',
             array('action'=>'edit', 'id_user' => $user->id_user));?>"><li>Edit</li></a>
-    </td>
+    </td> 
     <td class="userTableActions">    
         <a href="<?php echo $this->url('users',
             array('action'=>'delete', 'id_user' => $user->id_user));?>"><li>Delete</li></a>
     </td>
 </tr>
 <?php endforeach; ?>
-</table>
+</table>  

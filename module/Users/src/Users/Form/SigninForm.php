@@ -2,8 +2,9 @@
 namespace Users\Form;
 
 use Zend\Form\Form;
+use Zend\Captcha;
 
-class UsersForm extends Form
+class SigninForm extends Form
 {
     public function __construct($name = null)
     {
@@ -30,9 +31,16 @@ class UsersForm extends Form
         ));
          $this->add(array(
             'name' => 'password',
-            'type' => 'Text',
+            'type' => 'password',
             'options' => array(
                 'label' => 'Password',
+            ),
+        ));
+        $this->add(array(
+            'name' => 'password_verify',
+            'type' => 'password',
+            'options' => array(
+                'label' => 'Password Verify',
             ),
         ));
          $this->add(array(

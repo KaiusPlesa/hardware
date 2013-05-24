@@ -70,8 +70,61 @@ class Users
                     ),
                 ),
             )));
+            $inputFilter->add($factory->createInput([ 
+                'name' => 'email', 
+                'required' => true, 
+                'filters' => [ 
+                    ['name' => 'StripTags'], 
+                    ['name' => 'StringTrim'], 
+                ], 
+                'validators' => [ 
+                    [ 
+                        'name' => 'EmailAddress', 
+                        'options' => [ 
+                            'encoding' => 'UTF-8', 
+                            'min'      => 5, 
+                            'max'      => 255, 
+                            'messages' => array( 
+                                \Zend\Validator\EmailAddress::INVALID_FORMAT => 'Email address format is invalid' 
+                            ) 
+                        ], 
+                    ], 
+                ], 
+            ])); 
+
+            $inputFilter->add($factory->createInput([ 
+                'name' => 'password', 
+                'required' => true, 
+                'filters' => [ ['name' => 'StringTrim'], ], 
+                'validators' => [ 
+                    [ 
+                        'name' => 'StringLength', 
+                        'options' => [ 
+                            'encoding' => 'UTF-8', 
+                            'min'      => 6, 
+                            'max'      => 128, 
+                        ], 
+                    ], 
+                ], 
+            ])); 
+
+            $inputFilter->add($factory->createInput([ 
+                'name' => 'password_verify', 
+                'required' => true, 
+                'filters' => [ ['name' => 'StringTrim'], ], 
+                'validators' => [ 
+                    array( 
+                        'name'    => 'StringLength', 
+                        'options' => array( 'min' => 6 ), 
+                    ), 
+                    array( 
+                        'name' => 'identical', 
+                        'options' => array('token' => 'password' ) 
+                    ), 
+                ], 
+            ]));
             $inputFilter->add($factory->createInput(array(
-                'name'     => 'password',
+                'name'     => 'username',
                 'required' => true,
                 'filters'  => array(
                     array('name' => 'StripTags'),
@@ -82,14 +135,34 @@ class Users
                         'name'    => 'StringLength',
                         'options' => array(
                             'encoding' => 'UTF-8',
-                            'min'      => 6,
+                            'min'      => 1,
                             'max'      => 100,
                         ),
                     ),
                 ),
             )));
+
+            $this->inputFilter = $inputFilter;
+        }
+
+        return $this->inputFilter;
+    }
+        public function getInputFilterEdit()
+    {
+        if (!$this->inputFilter) {
+            $inputFilter = new InputFilter();
+            $factory     = new InputFactory();
+
             $inputFilter->add($factory->createInput(array(
-                'name'     => 'email',
+                'name'     => 'id_user',
+                'required' => true,
+                'filters'  => array(
+                    array('name' => 'Int'),
+                ),
+            )));
+
+            $inputFilter->add($factory->createInput(array(
+                'name'     => 'name',
                 'required' => true,
                 'filters'  => array(
                     array('name' => 'StripTags'),
@@ -100,12 +173,33 @@ class Users
                         'name'    => 'StringLength',
                         'options' => array(
                             'encoding' => 'UTF-8',
-                            'min'      => 10,
+                            'min'      => 1,
                             'max'      => 100,
                         ),
                     ),
                 ),
             )));
+            $inputFilter->add($factory->createInput([ 
+                'name' => 'email', 
+                'required' => true, 
+                'filters' => [ 
+                    ['name' => 'StripTags'], 
+                    ['name' => 'StringTrim'], 
+                ], 
+                'validators' => [ 
+                    [ 
+                        'name' => 'EmailAddress', 
+                        'options' => [ 
+                            'encoding' => 'UTF-8', 
+                            'min'      => 5, 
+                            'max'      => 255, 
+                            'messages' => array( 
+                                \Zend\Validator\EmailAddress::INVALID_FORMAT => 'Email address format is invalid' 
+                            ) 
+                        ], 
+                    ], 
+                ], 
+            ])); 
             $inputFilter->add($factory->createInput(array(
                 'name'     => 'username',
                 'required' => true,
