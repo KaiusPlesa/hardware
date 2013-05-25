@@ -10,20 +10,24 @@ class Users
 {
     public $user_id;
     public $username;
+    public $display_name;
     public $password;
     public $email;
     public $user_type;
     public $last_login;
+    public $state;
     protected $inputFilter;
 
     public function exchangeArray($data)
     {
         $this->user_id     = (!empty($data['user_id'])) ? $data['user_id'] : null;
         $this->username  = (!empty($data['username'])) ? $data['username'] : null;
+        $this->display_name  = (!empty($data['display_name'])) ? $data['display_name'] : null;
         $this->password  = (!empty($data['password'])) ? $data['password'] : null;
         $this->email  = (!empty($data['email'])) ? $data['email'] : null;
         $this->user_type  = (!empty($data['user_type'])) ? $data['user_type'] : null;
         $this->last_login  = (!empty($data['last_login'])) ? $data['last_login'] : null;
+        $this->state  = (!empty($data['state'])) ? $data['state'] : null;
     }
     
     public function getArrayCopy()
