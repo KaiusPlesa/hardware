@@ -1,5 +1,8 @@
-<h1>Register</h1>
+<?php
 
+$title = 'Sign Up';
+$this->headTitle($title);
+?>
 <?php
 if (!$this->enableRegistration) {
     print "Registration is disabled";
@@ -10,15 +13,18 @@ $form->prepare();
 $form->setAttribute('action', $this->url('zfcuser/register'));
 $form->setAttribute('method', 'post');
 ?>
-
+ <div id="carbonForm">
+ <h1><?php echo $this->escapeHtml($title); ?></h1>
 <?php echo $this->form()->openTag($form) ?>
-    <dl class="zend_form">
+    <dl class="fieldContainer">
     <?php foreach ($form as $element): ?>
         <?php if (!$element instanceof Zend\Form\Element\Button): ?>
             <dt><?php echo $this->formLabel($element) ?></dt>
         <?php endif ?>
         <?php if ($element instanceof Zend\Form\Element\Button): ?>
-            <dd><?php echo $this->formButton($element) ?></dd>
+                             <div class="signupButton">
+                            <input type="submit" class="addButton" name='<?=$element->getName()?>'" value="Register">
+                              </div>
         <?php elseif ($element instanceof Zend\Form\Element\Captcha): ?>
             <dd><?php echo $this->formCaptcha($element) . $this->formElementErrors($element) ?></dd>
         <?php else: ?>
@@ -29,4 +35,5 @@ $form->setAttribute('method', 'post');
     <?php if ($this->redirect): ?>
         <input type="hidden" name="redirect" value="<?php echo $this->escapeHtml($this->redirect) ?>" />
     <?php endif ?>
-<?php echo $this->form()->closeTag() ?>
+<?php echo $this->form()->closeTag() ?>   
+</div>

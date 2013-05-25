@@ -34,10 +34,13 @@
                     <a class="brand" href="<?php echo $this->url('home') ?>"><?php echo $this->translate('Hardware Compare') ?></a>
                     <div class="nav-collapse collapse">
                         <ul class="nav">
-                            <li class="active"><a href="<?php echo $this->url('home') ?>"><?php echo $this->translate('Home') ?></a></li>
-                            <li class="active"><a href="<?php echo $this->url('album') ?>"><?php echo $this->translate('Album Manage') ?></a></li>
-                            <li class="active"><a href="<?php echo $this->url('users') ?>"><?php echo $this->translate('Users Manage') ?></a></li>
-                            <li class="active"><a href="<?php echo $this->url('users', array('action'=>'signin'));?>">Sign Up</a></li>
+                            <li class="active"><a href="<?php echo $this->url('home') ?>"><?php echo $this->translate('Home') ?></a></li>                            
+                            <?php if($this->zfcUserIdentity()){?>
+                            <li class="active"><a href="<?php echo $this->url('zfcuser/logout')?>">Logout</a></li>
+                             <?php }else{?>
+                             <li class="active"><a href="<?php echo $this->url('zfcuser/register')?>">Sign Up</a></li>
+                            <li class="active"><a href="<?php echo $this->url('zfcuser/login')?>">Login</a></li>                           
+                             <?php }?>
                         </ul>
                     </div><!--/.nav-collapse -->
                 </div>

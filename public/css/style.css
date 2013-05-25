@@ -148,7 +148,7 @@ hr{
     border:1px solid #080808;
     margin:20px auto;
     padding:20px;
-    width:500px;
+    width:270px;
     
     -moz-box-shadow:0 0 1px #444 inset;
     -webkit-box-shadow:0 0 1px #444 inset;
@@ -168,7 +168,7 @@ hr{
 }
 #carbonForm input{
     float: right;
-    margin-right: 30px;
+    
 }
 #carbonForm span{
     margin-left: 30px;
@@ -182,11 +182,12 @@ hr{
     text-shadow: 1px 1px 2px #fff;
     border-radius: 1px 1px 1px 1px;
     padding: 3px 10px 3px 10px;
-    width: 60px;
+    width: 100px;
     list-style: none;
     text-align: center;
-
+    margin:0 auto;
     border:none;
+    margin-top: 20px;
 }
 #carbonForm .addButton:hover{
     color: rgb(12, 0, 0);
@@ -195,12 +196,13 @@ hr{
     text-shadow: 1px 1px 2px rgb(245, 245, 245);
     border-radius: 1px 1px 1px 1px;
     padding: 3px 10px 3px 10px;
-    width: 60px;
+    width: 100px;
     list-style: none;
     text-align: center;
     -webkit-box-shadow: 0 0 8px lightblue;
     box-shadow: 0 0 8px lightblue; 
     border: :none;
+    margin-top: 20px;
 }
 
 .fieldContainer{
@@ -327,13 +329,14 @@ input:focus{
 }
 
 a, a:visited {
-    color:#0196e3;
+    color:rgb(34, 188, 226);
     text-decoration:none;
     outline:none;
 }
 
 a:hover{
-    text-decoration:underline;
+    text-decoration:none;
+    color:rgb(245, 210, 25);
 }
 
 a img{
@@ -378,5 +381,9 @@ h1{
     margin:0 auto;
     text-align: center;
 }
+.registerButton{
+     
+}
+
 
 

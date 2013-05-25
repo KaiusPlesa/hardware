@@ -71,6 +71,10 @@ class UserController extends AbstractActionController
      */
     public function loginAction()
     {
+        if ($this->zfcUserAuthentication()->hasIdentity()) {
+            // redirect to the login redirect route
+            return $this->redirect()->toRoute($this->getOptions()->getLoginRedirectRoute());
+        }
         $request = $this->getRequest();
         $form    = $this->getLoginForm();
 
