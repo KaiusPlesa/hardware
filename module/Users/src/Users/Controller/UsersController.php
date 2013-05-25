@@ -22,14 +22,30 @@ class UsersController extends AbstractActionController
     
     public function indexAction()
     {
+        $user = $this->getServiceLocator()->get('zfcuserauthservice')->getIdentity();
+        if(empty($user)) return $this->redirect()->toRoute('zfcuser/login');        
+        $userType = $user->getUserType();
+
+        if ($userType != 1) {
+            //redirect to the login redirect route
+            return $this->redirect()->toRoute('home');
+       }
+      
         return new ViewModel(array(
             'users' => $this->getUsersTable()->fetchAll(),
         ));
     }
 
-    public function signinAction()
-    {
-        $form = new SigninForm();
+    public function addAction()
+    {   $user = $this->getServiceLocator()->get('zfcuserauthservice')->getIdentity();
+        if(empty($user)) return $this->redirect()->toRoute('zfcuser/login');        
+        $userType = $user->getUserType();
+
+        if ($userType != 1) {
+            //redirect to the login redirect route
+            return $this->redirect()->toRoute('home');
+       }
+        $form = new addForm();
         $form->get('submit')->setValue('Sign In');
 
         $request = $this->getRequest();
@@ -51,8 +67,16 @@ class UsersController extends AbstractActionController
 
     public function editAction()
     {
-              $id_user = (int) $this->params()->fromRoute('id_user', 0);
-        if (!$id_user) {
+        $user = $this->getServiceLocator()->get('zfcuserauthservice')->getIdentity();
+        if(empty($user)) return $this->redirect()->toRoute('zfcuser/login');        
+        $userType = $user->getUserType();
+
+        if ($userType != 1) {
+            //redirect to the login redirect route
+            return $this->redirect()->toRoute('home');
+       }
+              $user_id = (int) $this->params()->fromRoute('user_id', 0);
+        if (!$user_id) {
             return $this->redirect()->toRoute('users', array(
                 'action' => 'edit'
             ));
@@ -61,7 +85,7 @@ class UsersController extends AbstractActionController
         // Get the Users with the specified id.  An exception is thrown
         // if it cannot be found, in which case go to the index page.
         try {
-            $users = $this->getUsersTable()->getUsers($id_user);
+            $users = $this->getUsersTable()->getUsers($user_id);
         }
         catch (\Exception $ex) {
             return $this->redirect()->toRoute('users', array(
@@ -89,15 +113,15 @@ class UsersController extends AbstractActionController
         }
 
         return array(
-            'id_user' => $id_user,
+            'user_id' => $user_id,
             'form' => $form,
         );
     }
     
     public function deleteAction()
     {
-        $id_user = (int) $this->params()->fromRoute('id_user', 0);
-        if (!$id_user) {
+        $user_id = (int) $this->params()->fromRoute('user_id', 0);
+        if (!$user_id) {
             return $this->redirect()->toRoute('users');
         }
 
@@ -106,8 +130,8 @@ class UsersController extends AbstractActionController
             $del = $request->getPost('del', 'No');
 
             if ($del == 'Yes') {
-                $id_user = (int) $request->getPost('id_user');
-                $this->getUsersTable()->deleteUsers($id_user);
+                $user_id = (int) $request->getPost('user_id');
+                $this->getUsersTable()->deleteUsers($user_id);
             }
 
             // Redirect to list of Users
@@ -115,8 +139,8 @@ class UsersController extends AbstractActionController
         }
 
         return array(
-            'id_user'    => $id_user,
-            'users' => $this->getUsersTable()->getUsers($id_user)
+            'user_id'    => $user_id,
+            'users' => $this->getUsersTable()->getUsers($user_id)
         );
     }
     

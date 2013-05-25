@@ -6,7 +6,7 @@ $this->headTitle($title);
 <?php
 $url = $this->url('users', array(
     'action' => 'delete',
-    'id_user'     => $this->id_user,
+    'user_id'     => $this->user_id,
 ));
 
 ?>
@@ -16,7 +16,7 @@ $url = $this->url('users', array(
 </h1>
 <form action="<?php echo $url; ?>" method="post">
 <div>
-    <input type="hidden" name="id_user" value="<?php echo (int) $users->id_user; ?>" />
+    <input type="hidden" name="user_id" value="<?php echo (int) $users->user_id; ?>" />
     <input type="submit" name="del" value="Yes" class="delButtonConf" />
     <input type="submit" name="del" value="No" class="delButtonConf" />
 </div>

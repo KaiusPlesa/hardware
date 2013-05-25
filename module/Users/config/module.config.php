@@ -11,10 +11,10 @@ return array(
             'users' => array(
                 'type'    => 'segment',
                 'options' => array(
-                    'route'    => '/users[/][:action][/:id_user]',
+                    'route'    => '/users[/][:action][/:user_id]',
                     'constraints' => array(
                         'action' => '[a-zA-Z][a-zA-Z0-9_-]*',
-                        'id_user'     => '[0-9]+',
+                        'user_id'     => '[0-9]+',
                     ),
                     'defaults' => array(
                         'controller' => 'Users\Controller\Users',

@@ -6,6 +6,7 @@ $this->headTitle($title);
 <?php
 $form = $this->loginForm;
 $form->prepare();
+$form->setAttribute('id', 'loginForm');
 $form->setAttribute('action', $this->url('zfcuser/login'));
 $form->setAttribute('method', 'post');
 ?>
@@ -13,8 +14,9 @@ $form->setAttribute('method', 'post');
  <h1><?php echo $this->escapeHtml($title); ?></h1>
 <?php echo $this->form()->openTag($form) ?>
     <dl class="fieldContainer">
+       <div class="loginErrorFix">        
         <?php echo $this->formElementErrors($form->get('identity')) ?>
-
+         </div>
         <dt><?php echo $this->formLabel($form->get('identity')) ?></dt>
         <dd><?php echo $this->formInput($form->get('identity')) ?></dd>
 

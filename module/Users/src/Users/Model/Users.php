@@ -8,8 +8,7 @@ use Zend\InputFilter\InputFilterInterface;
 
 class Users
 {
-    public $id_user;
-    public $name;
+    public $user_id;
     public $username;
     public $password;
     public $email;
@@ -19,8 +18,7 @@ class Users
 
     public function exchangeArray($data)
     {
-        $this->id_user     = (!empty($data['id_user'])) ? $data['id_user'] : null;
-        $this->name = (!empty($data['name'])) ? $data['name'] : null;
+        $this->user_id     = (!empty($data['user_id'])) ? $data['user_id'] : null;
         $this->username  = (!empty($data['username'])) ? $data['username'] : null;
         $this->password  = (!empty($data['password'])) ? $data['password'] : null;
         $this->email  = (!empty($data['email'])) ? $data['email'] : null;
@@ -45,29 +43,10 @@ class Users
             $factory     = new InputFactory();
 
             $inputFilter->add($factory->createInput(array(
-                'name'     => 'id_user',
+                'name'     => 'user_id',
                 'required' => true,
                 'filters'  => array(
                     array('name' => 'Int'),
-                ),
-            )));
-
-            $inputFilter->add($factory->createInput(array(
-                'name'     => 'name',
-                'required' => true,
-                'filters'  => array(
-                    array('name' => 'StripTags'),
-                    array('name' => 'StringTrim'),
-                ),
-                'validators' => array(
-                    array(
-                        'name'    => 'StringLength',
-                        'options' => array(
-                            'encoding' => 'UTF-8',
-                            'min'      => 1,
-                            'max'      => 100,
-                        ),
-                    ),
                 ),
             )));
             $inputFilter->add($factory->createInput([ 
@@ -154,29 +133,10 @@ class Users
             $factory     = new InputFactory();
 
             $inputFilter->add($factory->createInput(array(
-                'name'     => 'id_user',
+                'name'     => 'user_id',
                 'required' => true,
                 'filters'  => array(
                     array('name' => 'Int'),
-                ),
-            )));
-
-            $inputFilter->add($factory->createInput(array(
-                'name'     => 'name',
-                'required' => true,
-                'filters'  => array(
-                    array('name' => 'StripTags'),
-                    array('name' => 'StringTrim'),
-                ),
-                'validators' => array(
-                    array(
-                        'name'    => 'StringLength',
-                        'options' => array(
-                            'encoding' => 'UTF-8',
-                            'min'      => 1,
-                            'max'      => 100,
-                        ),
-                    ),
                 ),
             )));
             $inputFilter->add($factory->createInput([ 

@@ -18,13 +18,13 @@ class UsersTable
         return $resultSet;
     }
 
-    public function getUsers($id_user)
+    public function getUsers($user_id)
     {
-        $id_user  = (int) $id_user;
-        $rowset = $this->tableGateway->select(array('id_user' => $id_user));
+        $user_id  = (int) $user_id;
+        $rowset = $this->tableGateway->select(array('user_id' => $user_id));
         $row = $rowset->current();
         if (!$row) {
-            throw new \Exception("Could not find row $id_user");
+            throw new \Exception("Could not find row $user_id");
         }
         return $row;
     }
@@ -32,7 +32,6 @@ class UsersTable
     public function saveUsers(Users $users)
     {
         $data = array(
-            'name' => $users->name,
             'username'  => $users->username,
             'password'  => md5($users->password),
             'email'  => $users->email,
@@ -40,12 +39,12 @@ class UsersTable
             'last_login'  => time(),
         );
 
-        $id_user = (int)$users->id;
-        if ($id_user == 0) {
+        $user_id = (int)$users->user_id;
+        if ($user_id == 0) {
             $this->tableGateway->insert($data);
         } else {
-            if ($this->getUsers($id_user)) {
-                $this->tableGateway->update($data, array('id_user' => $id_user));
+            if ($this->getUsers($user_id)) {
+                $this->tableGateway->update($data, array('user_id' => $user_id));
             } else {
                 throw new \Exception('Form id does not exist');
             }
@@ -53,26 +52,25 @@ class UsersTable
     }
         public function editUsers(Users $users)
     {
-        $data = array(           
-            'name' => $users->name,
+        $data = array(                       
             'username'  => $users->username,           
             'email'  => $users->email,
         );
          
-        $id_user = (int)$users->id_user;
-        if ($id_user == 0) {
+        $user_id = (int)$users->user_id;
+        if ($user_id == 0) {
             $this->tableGateway->insert($data);
         } else {
-            if ($this->getUsers($id_user)) {
-                $this->tableGateway->update($data, array('id_user' => $id_user));
+            if ($this->getUsers($user_id)) {
+                $this->tableGateway->update($data, array('user_id' => $user_id));
             } else {
                 throw new \Exception('Form id does not exist');
             }
         }
     }
 
-    public function deleteUsers($id_user)
+    public function deleteUsers($user_id)
     {
-        $this->tableGateway->delete(array('id_user' => $id_user));
+        $this->tableGateway->delete(array('user_id' => $user_id));
     }
 }

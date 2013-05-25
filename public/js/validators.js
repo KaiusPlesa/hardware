@@ -1,57 +1,120 @@
-$(document).ready(function(){ 
-	// $(document).ready() is executed after the page DOM id loaded
-	
-	
-	// Binding an listener to the submit event on the form:
-	$('#signupForm').submit(function(e){
-
-		// If a previous submit is in progress:
-		if($('#submit').hasClass('active')) return false;
-		
-		// Adding the active class to the button. Will show the preloader gif:
-		$('#submit').addClass('active');
-		
-		// Removing the current error tooltips
-		$('.errorTip').remove();
-		
-		// Issuing a POST ajax request to submit.php (the action attribute of the form):
-		$.post($('#signupForm').attr('action'),$('#signupForm').serialize()+'&fromAjax=1',function(response){
-			
-			if(!response.status)
-			{
-				// Some kind of input error occured
-				
-				// Looping through all the input text boxes,
-				// and checking whether they produced an error
-				$('input[type!=submit]').each(function(){
-					var elem = $(this);
-					var id = elem.attr('id');
-					
-					if(response[id])
-						showTooltip(elem,response[id]);
-				});
-			}
-			else location.replace(response.redirectURL);
-			
-			$('#submit').removeClass('active');
-		},'json');
-		
-		e.preventDefault();
-	});
-	
-	$(window).resize();
-});  
-
-// Centering the form vertically on every window resize:
-$(window).resize(function(){
-	var cf = $('#carbonForm');
-	
-	$('#carbonForm').css('margin-top',($(window).height()-cf.outerHeight())/2)
+$(document).ready(function(){
+    /*
+$('#wysihtml5').wysihtml5({
+    "events": {
+        "load": function() { 
+            console.log("Loaded!");
+        },
+        "blur": function() { 
+            console.log("Blured");
+        }
+    }
+});
+*/
+//onfocusin and out
+ $("#focus_id").blur(function() {        
+        $("#addBlogForm").validate().element( "#categ_h_id" );
+        }); 
+    
+$.validator.setDefaults({ 
+    ignore: [],
+    // any other default options and/or rules
 });
 
-// Helper function that creates an error tooltip:
-function showTooltip(elem,txt)
-{
-	// elem is the text box, txt is the error text
-	$('<div class="errorTip">').html(txt).appendTo(elem.closest('.formRow'));
-}
+jQuery.validator.addMethod("textareaEditor", function(value, element) {
+    
+    return $('#wysihtml5').val(); 
+});
+
+jQuery.validator.addMethod("categselected", function() {
+    return $("#addBlogForm").validate().element( "#categ_h_id" );
+});
+
+    
+$.validator.addMethod(
+    "regex",
+    function (value, element, regexp) {
+        var re = new RegExp(regexp);
+        return this.optional(element) || re.test(value);
+    },
+"invalid"
+);
+   
+//FORM BLOG EDIT 
+$("#signupForm").validate({
+              
+        rules: {
+            username: {
+                required: true,
+                minlength:5                          
+            },
+             email: {
+                required: true,
+                email: true           
+            },  
+            display_name: {
+                required: true,
+                minlength:5,
+                maxlength:100           
+            },
+             password: {
+                required: true,
+                minlength:6,
+                maxlength:15
+                           
+            },
+            passwordVerify: {
+                equalTo: "input[name='password']"                          
+            }                
+        },
+        messages: {
+            username: {
+                required: "This field is required.",
+                minlength:"Minimum Lenght is 5 characters."
+            },
+            email: {
+                required: "This field is required.",
+                email:"Please enter a valid email address."
+            },
+             display_name: {
+                required: "This field is required.",
+                minlength:"Minimum Lenght is 5 characters",
+                maxlength:"Maximum Lenght is 100 characters"
+            },
+            password: {
+                required: "This field is required.",
+                minlength:"Minimum Lenght is 6 characters",
+                maxlength:"Maximum Lenght is 15 characters"               
+            },
+             passwordVerify: {
+                equalTo: "Passwords do not match."
+                              
+            }                           
+            
+        },
+       
+      errorPlacement: function(error, element) {                
+            elementName = $(element).attr("name");
+            $("#error_"+elementName).html(error);         
+            //$('iframe').contents().find('.wysihtml5-editor').html();                 
+            },
+      highlight: function(element) {
+            $(element).closest('.liNoP').removeClass('success').addClass('error');
+            },                              
+      unhighlight: function(element) {
+            $(element).closest('.liNoP').removeClass('error').addClass('success');
+            $(element).closest('form').find('.valid').removeClass("invalid");
+            },
+      success: function(element) {
+            $(element).closest('.liNoP').removeClass('error').addClass('success');
+            $(element).closest('form').find('.valid').removeClass("invalid");
+            },                                  
+    });       
+   
+     
+});
+
+
+
+
+

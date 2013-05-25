@@ -242,7 +242,7 @@ label{
     font-family:Century Gothic,Myriad Pro,Arial,Helvetica,sans-serif;
     font-size:11px;
     letter-spacing:1px;
-    line-height:35px;
+    
 }
 
 .field{
@@ -381,8 +381,45 @@ h1{
     margin:0 auto;
     text-align: center;
 }
-.registerButton{
-     
+.hero-unit{
+    background-color: rgb(34, 188, 226);
+    color: rgb(0, 0, 0);
+    font-size: 12px;
+    text-shadow: 1px 1px 2px #ccc;
+}
+.welcome{
+    width:200px;
+    padding-top: 10px;
+    padding-left: 10px;
+}
+.welcome:hover{
+    width:200px;
+    color: rgb(245, 210, 25);
+    padding-top: 10px;
+    padding-left: 10px;
+}
+.liNoP{
+    list-style: none;
+    color:red;
+}
+#signupForm li{
+    list-style: none;
+    color:red;
+    margin-left: -22px;
+}
+#loginForm li{
+    list-style: none;
+    color:red;
+    margin-left: -22px;
+}
+input{
+    width: 235px;
+}
+dd{
+    margin-left: 0px;
+}
+.loginErrorFix{
+    text-align: center;
 }
 
 

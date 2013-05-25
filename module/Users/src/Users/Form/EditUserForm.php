@@ -12,15 +12,8 @@ class EditUserForm extends Form
         parent::__construct('users');
         $this->setAttribute('method', 'post');
         $this->add(array(
-            'name' => 'id_user',
+            'name' => 'user_id',
             'type' => 'Hidden',
-        ));
-        $this->add(array(
-            'name' => 'name',
-            'type' => 'Text',
-            'options' => array(
-                'label' => 'Name',
-            ),
         ));
         $this->add(array(
             'name' => 'username',

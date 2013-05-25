@@ -1,3 +1,5 @@
+<script src="/js/validators.js" type="text/javascript" charset="utf-8"></script>
+<script src="/js/jquery.validate.min.js" type="text/javascript" charset="utf-8"></script>
 <?php
 
 $title = 'Sign Up';
@@ -10,6 +12,7 @@ if (!$this->enableRegistration) {
 }
 $form = $this->registerForm;
 $form->prepare();
+$form->setAttribute('id', 'signupForm');
 $form->setAttribute('action', $this->url('zfcuser/register'));
 $form->setAttribute('method', 'post');
 ?>
@@ -22,13 +25,17 @@ $form->setAttribute('method', 'post');
             <dt><?php echo $this->formLabel($element) ?></dt>
         <?php endif ?>
         <?php if ($element instanceof Zend\Form\Element\Button): ?>
-                             <div class="signupButton">
-                            <input type="submit" class="addButton" name='<?=$element->getName()?>'" value="Register">
-                              </div>
+        <div class="signupButton">
+            <input type="submit" class="addButton" name='<?=$element->getName()?>'" value="Register">
+        </div>
         <?php elseif ($element instanceof Zend\Form\Element\Captcha): ?>
             <dd><?php echo $this->formCaptcha($element) . $this->formElementErrors($element) ?></dd>
+           
         <?php else: ?>
             <dd><?php echo $this->formInput($element) . $this->formElementErrors($element) ?></dd>
+        <ul>
+        <li class="liNoP" id="<?php echo "error_".$element->getName(); ?>"></li>
+        </ul>
         <?php endif ?>
     <?php endforeach ?>
     </dl>

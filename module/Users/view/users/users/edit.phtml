@@ -9,7 +9,7 @@ $form->setAttribute('action', $this->url(
     'users',
     array(
         'action' => 'edit',
-        'id_user'     => $this->id_user,
+        'user_id'     => $this->user_id,
     )
 ));
 $form->prepare();
@@ -20,8 +20,7 @@ $form->prepare();
         <div class="fieldContainer">
             <?php
                 echo $this->form()->openTag($form);
-                echo $this->formHidden($form->get('id_user'));
-                echo $this->formRow($form->get('name'));
+                echo $this->formHidden($form->get('user_id'));               
                 echo $this->formRow($form->get('username'));
                 echo $this->formRow($form->get('email'));                
                 //echo $this->formCollection($form);

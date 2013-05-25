@@ -12,7 +12,7 @@ class SigninForm extends Form
         parent::__construct('users');
         $this->setAttribute('method', 'post');
         $this->add(array(
-            'name' => 'id_user',
+            'name' => 'user_id',
             'type' => 'Hidden',
         ));
         $this->add(array(
