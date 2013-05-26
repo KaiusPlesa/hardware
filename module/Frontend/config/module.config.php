@@ -4,8 +4,8 @@ return array(
         'invokables' => array(
             'Frontend\Controller\Categories' => 'Frontend\Controller\CategoriesController',
             'Frontend\Controller\Subcategories' => 'Frontend\Controller\SubcategoriesController',
-            //'Frontend\Controller\Frontend' => 'Frontend\Controller\ProducersController',
-            //'Frontend\Controller\Frontend' => 'Frontend\Controller\ProductsController',
+            'Frontend\Controller\Producers' => 'Frontend\Controller\ProducersController',
+            'Frontend\Controller\Products' => 'Frontend\Controller\ProductsController',
         ),
     ),
        // Routes for new module
@@ -35,6 +35,34 @@ return array(
                     ),
                     'defaults' => array(
                         'controller' => 'Frontend\Controller\Subcategories',
+                        'action'     => 'index',
+                    ),
+                ),
+            ),
+            'producers' => array(
+                'type'    => 'segment',
+                'options' => array(
+                    'route'    => '/producers[/][:action][/:prod_id]',
+                    'constraints' => array(
+                        'action' => '[a-zA-Z][a-zA-Z0-9_-]*',
+                        'prod_id'     => '[0-9]+',
+                    ),
+                    'defaults' => array(
+                        'controller' => 'Frontend\Controller\Producers',
+                        'action'     => 'index',
+                    ),
+                ),
+            ),
+            'products' => array(
+                'type'    => 'segment',
+                'options' => array(
+                    'route'    => '/products[/][:action][/:product_id]',
+                    'constraints' => array(
+                        'action' => '[a-zA-Z][a-zA-Z0-9_-]*',
+                        'product_id'     => '[0-9]+',
+                    ),
+                    'defaults' => array(
+                        'controller' => 'Frontend\Controller\Products',
                         'action'     => 'index',
                     ),
                 ),

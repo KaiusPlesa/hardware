@@ -8,8 +8,10 @@ $this->headTitle($title);
 <table class="tableUsers">
 <tr>
     <th>Username</th>
+    <th>Display name</th>
     <th>Email Address</th>
     <th>User Type</th>
+    <th>User State</th>
     <th>Last Login</th>
     <th colspan="2">Actions</th>
 </tr>
@@ -17,11 +19,15 @@ $this->headTitle($title);
 <tr>      
     <?php 
         $type = $this->escapeHtml($user->user_type);
-        $type == 1 ? $type = 'Admin': $type='Member'; 
+        $type == 1 ? $type = 'Admin': $type='Member';
+        $state = $this->escapeHtml($user->state);
+        $state == 1 ? $state = 'Active': $state='Disabled';         
      ?> 
     <td><?php echo $this->escapeHtml($user->username);?></td>
+    <td><?php echo $this->escapeHtml($user->display_name);?></td>
     <td><?php echo $this->escapeHtml($user->email);?></td>
     <td><?php echo $type;?></td>
+    <td class="user<?=$state?>"><?php echo $state;?></td>
     <td><?php echo date("l jS F Y - g:ia",$this->escapeHtml($user->last_login));?></td>
     <td class="userTableActions">
         <a href="<?php echo $this->url('users',

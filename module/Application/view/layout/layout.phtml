@@ -35,8 +35,10 @@
                             <li class="active"><a href="<?php echo $this->url('home') ?>"><?php echo $this->translate('Home') ?></a></li>                                                        
                             <?php if($this->zfcUserIdentity() and $this->zfcUserIdentity()->getUserType() == 1){?>
                             <li class="active"><a href="<?php echo $this->url('users')?>">Users</a></li>
-                            <li class="active"><a href="<?php echo $this->url('categories')?>">Categories</a></li>
-                            <li class="active"><a href="<?php echo $this->url('subcategories')?>">Subcategories</a></li>
+                            <li class="active"><a href="<?php echo $this->url('categories')?>">Categ</a></li>
+                            <li class="active"><a href="<?php echo $this->url('subcategories')?>">Sub-Categ</a></li>
+                            <li class="active"><a href="<?php echo $this->url('producers')?>">Producers</a></li>
+                            <li class="active"><a href="<?php echo $this->url('products')?>">Products</a></li>
                             <?php }?>
                             <?php if($this->zfcUserIdentity()){?>                    
                             <li class="active"><a href="<?php echo $this->url('zfcuser/logout')?>">Logout</a></li>
