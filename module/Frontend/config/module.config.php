@@ -3,7 +3,7 @@ return array(
     'controllers' => array(
         'invokables' => array(
             'Frontend\Controller\Categories' => 'Frontend\Controller\CategoriesController',
-            //'Frontend\Controller\Frontend' => 'Frontend\Controller\SubcategoriesController',
+            'Frontend\Controller\Subcategories' => 'Frontend\Controller\SubcategoriesController',
             //'Frontend\Controller\Frontend' => 'Frontend\Controller\ProducersController',
             //'Frontend\Controller\Frontend' => 'Frontend\Controller\ProductsController',
         ),
@@ -21,6 +21,20 @@ return array(
                     ),
                     'defaults' => array(
                         'controller' => 'Frontend\Controller\Categories',
+                        'action'     => 'index',
+                    ),
+                ),
+            ),
+            'subcategories' => array(
+                'type'    => 'segment',
+                'options' => array(
+                    'route'    => '/subcategories[/][:action][/:subcateg_id]',
+                    'constraints' => array(
+                        'action' => '[a-zA-Z][a-zA-Z0-9_-]*',
+                        'subcateg_id'     => '[0-9]+',
+                    ),
+                    'defaults' => array(
+                        'controller' => 'Frontend\Controller\Subcategories',
                         'action'     => 'index',
                     ),
                 ),

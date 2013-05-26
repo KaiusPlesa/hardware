@@ -1,0 +1,32 @@
+<?php
+
+$title = 'Subcategories List';
+$this->headTitle($title);
+?>
+<h1><?php echo $this->escapeHtml($title); ?></h1>
+
+<table class="tableUsers">
+<tr>
+    <th>Subcategorie Id</th>
+    <th>Categorie Name</th>
+    <th>Subcategorie Name</th>
+    <th colspan="2">Actions</th>
+</tr>
+
+<?php foreach ($subcategories as $subcategorie) : ?>
+
+<tr>         
+    <td><?php echo $this->escapeHtml($subcategorie->subcateg_id);?></td>
+    <td><?php echo $this->escapeHtml($subcategorie->categ_id);?></td>
+    <td><?php echo $this->escapeHtml($subcategorie->subcategorie_name);?></td>
+    <td class="userTableActions">
+        <a href="<?php echo $this->url('subcategories',
+            array('action'=>'edit', 'subcateg_id' => $subcategorie->subcateg_id));?>"><li>Edit</li></a>
+    </td> 
+    <td class="userTableActions">    
+        <a href="<?php echo $this->url('subcategories',
+            array('action'=>'delete', 'subcateg_id' => $subcategorie->subcateg_id));?>"><li>Delete</li></a>
+    </td>
+</tr>
+<?php endforeach; ?>
+</table>  

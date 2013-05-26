@@ -2,7 +2,9 @@
 namespace Frontend;
 
 use Frontend\Model\Categories;
+use Frontend\Model\Subcategories;
 use Frontend\Model\CategoriesTable;
+use Frontend\Model\SubcategoriesTable;
 use Zend\Db\ResultSet\ResultSet;
 use Zend\Db\TableGateway\TableGateway;
 
@@ -36,11 +38,22 @@ class Module
                     $table = new CategoriesTable($tableGateway);
                     return $table;
                 },
+                'Frontend\Model\SubcategoriesTable' =>  function($sm) {
+                    $tableGateway = $sm->get('SubcategoriesTableGateway');
+                    $table = new SubcategoriesTable($tableGateway);
+                    return $table;
+                },
                 'CategoriesTableGateway' => function ($sm) {
                     $dbAdapter = $sm->get('Zend\Db\Adapter\Adapter');
                     $resultSetPrototype = new ResultSet();
                     $resultSetPrototype->setArrayObjectPrototype(new Categories());
                     return new TableGateway('categories', $dbAdapter, null, $resultSetPrototype);
+                },
+                'SubcategoriesTableGateway' => function ($sm) {
+                    $dbAdapter = $sm->get('Zend\Db\Adapter\Adapter');
+                    $resultSetPrototype = new ResultSet();
+                    $resultSetPrototype->setArrayObjectPrototype(new Subcategories());
+                    return new TableGateway('subcategories', $dbAdapter, null, $resultSetPrototype);
                 },
             ),
         );
