@@ -21,7 +21,7 @@ class UsersTable
     public function getUsers($user_id)
     {
         $user_id  = (int) $user_id;
-        $rowset = $this->tableGateway->select(array('user_id' => $user_id));
+        $rowset = $this->tableGateway->select(array('user_id' => $user_id));        
         $row = $rowset->current();
         if (!$row) {
             throw new \Exception("Could not find row $user_id");

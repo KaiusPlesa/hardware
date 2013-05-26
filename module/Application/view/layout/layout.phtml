@@ -32,10 +32,10 @@
                     <a class="brand" href="<?php echo $this->url('home') ?>"><?php echo $this->translate('Hardware Compare') ?></a>
                     <div class="nav-collapse collapse">
                         <ul class="nav">
-                            <li class="active"><a href="<?php echo $this->url('home') ?>"><?php echo $this->translate('Home') ?></a></li>                            
-                            
+                            <li class="active"><a href="<?php echo $this->url('home') ?>"><?php echo $this->translate('Home') ?></a></li>                                                        
                             <?php if($this->zfcUserIdentity() and $this->zfcUserIdentity()->getUserType() == 1){?>
                             <li class="active"><a href="<?php echo $this->url('users')?>">Users</a></li>
+                            <li class="active"><a href="<?php echo $this->url('categories')?>">Categories</a></li>
                             <?php }?>
                             <?php if($this->zfcUserIdentity()){?>                    
                             <li class="active"><a href="<?php echo $this->url('zfcuser/logout')?>">Logout</a></li>
