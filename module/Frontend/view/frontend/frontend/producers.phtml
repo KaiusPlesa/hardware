@@ -8,8 +8,6 @@ $this->headTitle($title);
 <table class="tableUsers">
 <tr>
     <th>Producer Id</th>
-    <th>Categorie Id</th>
-    <th>Subcategorie Id</th>
     <th>Producer Name</th>
     <th colspan="2">Actions</th>
 </tr>
@@ -17,9 +15,7 @@ $this->headTitle($title);
 <?php foreach ($producers as $producer) : ?>
 
 <tr>         
-    <td><?php echo $this->escapeHtml($producer->prod_id);?></td>
-    <td><?php echo $this->escapeHtml($producer->categ_id);?></td>
-    <td><?php echo $this->escapeHtml($producer->subcateg_id);?></td>
+    <td><?php echo $this->escapeHtml($producer->producer_id);?></td>
     <td><?php echo $this->escapeHtml($producer->producer_name);?></td>
     <td class="userTableActions">
         <a href="<?php echo $this->url('producers',

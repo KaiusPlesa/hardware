@@ -15,7 +15,7 @@ return array(
                 'options' => array(
                     'route'    => '/',
                     'defaults' => array(
-                        'controller' => 'Application\Controller\Index',
+                        'controller' => 'Frontend\Controller\Frontend',
                         'action'     => 'index',
                     ),
                 ),

@@ -3,34 +3,112 @@ namespace Frontend\Controller;
 
 use Zend\Mvc\Controller\AbstractActionController;
 use Zend\View\Model\ViewModel;
+use Frontend\Model\Categories;          
+use Frontend\Model\Subcategories;          
+use Frontend\Model\Producers;          
 use Frontend\Model\Products;          
-use Frontend\Form\SigninForm;
-use Frontend\Form\EditUserForm;
 
-class ProductsController extends AbstractActionController
+class FrontendController extends AbstractActionController
 {
+    protected $categoriesTable;
+    protected $subcategoriesTable;
+    protected $producersTable;
     protected $productsTable;
     
-    public function getProductsTable()
+    // START TABLES -------------------------------------------------------
+    public function getCategoriesTable()
     {
-        if (!$this->productsTable) {
+        if (!$this->categoriesTable) {
             $sm = $this->getServiceLocator();
-            $this->productsTable = $sm->get('Frontend\Model\ProductsTable');
+            $this->categoriesTable = $sm->get('Frontend\Model\CategoriesTable');
         }
-        return $this->productsTable;
+        return $this->categoriesTable;
     }
-    
-    public function indexAction()
+     public function getSubcategoriesTable()
     {
-        $user = $this->getServiceLocator()->get('zfcuserauthservice')->getIdentity();
+        if (!$this->categoriesTable) {
+            $sm = $this->getServiceLocator();
+            $this->categoriesTable = $sm->get('Frontend\Model\SubcategoriesTable');
+        }
+        return $this->categoriesTable;
+    }
+     public function getProducersTable()
+    {
+        if (!$this->categoriesTable) {
+            $sm = $this->getServiceLocator();
+            $this->categoriesTable = $sm->get('Frontend\Model\ProducersTable');
+        }
+        return $this->categoriesTable;
+    }
+      public function getProductsTable()
+    {
+        if (!$this->categoriesTable) {
+            $sm = $this->getServiceLocator();
+            $this->categoriesTable = $sm->get('Frontend\Model\ProductsTable');
+        }
+        return $this->categoriesTable;
+    }
+    // END TABLES -------------------------------------------------------
+    
+    //REQUIRE ADMIN CODE
+    /*  
+    $user = $this->getServiceLocator()->get('zfcuserauthservice')->getIdentity();
         if(empty($user)) return $this->redirect()->toRoute('zfcuser/login');        
         $userType = $user->getUserType();
 
         if ($userType != 1) {
             //redirect to the login redirect route
             return $this->redirect()->toRoute('home');
-       }
-      
+       } 
+    */
+    public function indexAction()
+    {
+        $rowset = $this->getProducersTable()->fetchAll();
+        $producers = $rowset->toArray();
+        foreach($producers as $key=>$producer){           
+            $prod[$producer['producer_name']] = $producer['producer_id'];
+        }
+        echo"<pre>"; 
+        print_r($producers);      
+        echo"</pre>";  
+        //exit;      
+        return new ViewModel(array(
+            'categories' => $this->getCategoriesTable()->fetchAll(),
+        ));
+    }
+    //----------------------------------------------------------------
+    //PRINT ALL PRODUCERS ADMIN LOGIN REQUIRE
+    public function producersAction()
+    {
+             
+        return new ViewModel(array(
+            'producers' => $this->getProducersTable()->fetchAll(),
+        ));
+    }
+    //----------------------------------------------------------------
+    //PRINT ALL SUBCATEGORIES ADMIN LOGIN REQUIRE
+    public function subcategoriesAction()
+    {
+        
+        return new ViewModel(array(
+            //'subcategories' => $this->getSubcategoriesTable()->getSubcategById('7'),
+            'subcategories' => $this->getSubcategoriesTable()->fetchAll(),
+        ));
+    }
+    //----------------------------------------------------------------
+    //PRINT ALL CATEGORIES ADMIN LOGIN REQUIRE
+    public function categoriesAction()
+    {
+
+        return new ViewModel(array(
+            'categories' => $this->getCategoriesTable()->fetchAll(),
+        ));
+    }
+     //----------------------------------------------------------------
+    //PRINT ALL PRODUCTS ADMIN LOGIN REQUIRE
+    public function productsAction()
+    {
+        
         return new ViewModel(array(
             'products' => $this->getProductsTable()->fetchAll(),
         ));

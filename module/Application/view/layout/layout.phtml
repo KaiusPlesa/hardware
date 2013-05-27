@@ -9,9 +9,9 @@
 
         <!-- Le styles -->
         <?php echo $this->headLink(array('rel' => 'shortcut icon', 'type' => 'image/vnd.microsoft.icon', 'href' => $this->basePath() . '/img/favicon.ico'))
-                        ->prependStylesheet($this->basePath() . '/css/bootstrap-responsive.min.css')
+                        ->prependStylesheet($this->basePath() . '/css/bootstrap-responsive.css')
                         ->prependStylesheet($this->basePath() . '/css/style.css')
-                        ->prependStylesheet($this->basePath() . '/css/bootstrap.min.css') ?>
+                        ->prependStylesheet($this->basePath() . '/css/bootstrap.css') ?>
 
         <!-- Scripts -->
         <?php echo $this->headScript()->prependFile($this->basePath() . '/js/html5.js', 'text/javascript', array('conditional' => 'lt IE 9',))
@@ -32,7 +32,7 @@
                     <a class="brand" href="<?php echo $this->url('home') ?>"><?php echo $this->translate('Hardware Compare') ?></a>
                     <div class="nav-collapse collapse">
                         <ul class="nav">
-                            <li class="active"><a href="<?php echo $this->url('home') ?>"><?php echo $this->translate('Home') ?></a></li>                                                        
+                            <li class="active"><a href="<?php echo $this->url('frontend') ?>"><?php echo $this->translate('Home') ?></a></li>                                                        
                             <?php if($this->zfcUserIdentity() and $this->zfcUserIdentity()->getUserType() == 1){?>
                             <li class="active"><a href="<?php echo $this->url('users')?>">Users</a></li>
                             <li class="active"><a href="<?php echo $this->url('categories')?>">Categ</a></li>

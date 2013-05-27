@@ -28,44 +28,5 @@ class ProductsTable
         }
         return $row;
     }
-
-    public function saveCategories(Categories $categories)
-    {
-        $data = array(
-            'categories_name'  => $categories->categories_name,
-        );
-
-        $product_id = (int)$categories->product_id;
-        if ($product_id == 0) {
-            $this->tableGateway->insert($data);
-        } else {
-            if ($this->getCategories($product_id)) {
-                $this->tableGateway->update($data, array('product_id' => $product_id));
-            } else {
-                throw new \Exception('Form id does not exist');
-            }
-        }
-    }
-        public function editCategories(Categories $Categories)
-    {
-        $data = array(                       
-            'categories_name'  => $categories->categories_name,           
-        );
-         
-        $product_id = (int)$categories->product_id;
-        if ($product_id == 0) {
-            $this->tableGateway->insert($data);
-        } else {
-            if ($this->getCategories($product_id)) {
-                $this->tableGateway->update($data, array('product_id' => $product_id));
-            } else {
-                throw new \Exception('Form id does not exist');
-            }
-        }
-    }
-
-    public function deleteCategories($product_id)
-    {
-        $this->tableGateway->delete(array('product_id' => $product_id));
-    }
+    
 }

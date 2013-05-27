@@ -2,10 +2,7 @@
 return array(
     'controllers' => array(
         'invokables' => array(
-            'Frontend\Controller\Categories' => 'Frontend\Controller\CategoriesController',
-            'Frontend\Controller\Subcategories' => 'Frontend\Controller\SubcategoriesController',
-            'Frontend\Controller\Producers' => 'Frontend\Controller\ProducersController',
-            'Frontend\Controller\Products' => 'Frontend\Controller\ProductsController',
+            'Frontend\Controller\Frontend' => 'Frontend\Controller\FrontendController',
         ),
     ),
        // Routes for new module
@@ -20,8 +17,8 @@ return array(
                         'categ_id'     => '[0-9]+',
                     ),
                     'defaults' => array(
-                        'controller' => 'Frontend\Controller\Categories',
-                        'action'     => 'index',
+                        'controller' => 'Frontend\Controller\Frontend',
+                        'action'     => 'categories',
                     ),
                 ),
             ),
@@ -34,8 +31,8 @@ return array(
                         'subcateg_id'     => '[0-9]+',
                     ),
                     'defaults' => array(
-                        'controller' => 'Frontend\Controller\Subcategories',
-                        'action'     => 'index',
+                        'controller' => 'Frontend\Controller\Frontend',
+                        'action'     => 'subcategories',
                     ),
                 ),
             ),
@@ -48,8 +45,8 @@ return array(
                         'prod_id'     => '[0-9]+',
                     ),
                     'defaults' => array(
-                        'controller' => 'Frontend\Controller\Producers',
-                        'action'     => 'index',
+                        'controller' => 'Frontend\Controller\Frontend',
+                        'action'     => 'producers',
                     ),
                 ),
             ),
@@ -62,7 +59,20 @@ return array(
                         'product_id'     => '[0-9]+',
                     ),
                     'defaults' => array(
-                        'controller' => 'Frontend\Controller\Products',
+                        'controller' => 'Frontend\Controller\Frontend',
+                        'action'     => 'products',
+                    ),
+                ),
+            ),
+            'frontend' => array(
+                'type'    => 'segment',
+                'options' => array(
+                    'route'    => '/frontend[/][:action]',
+                    'constraints' => array(
+                        'action' => '[a-zA-Z][a-zA-Z0-9_-]*',
+                    ),
+                    'defaults' => array(
+                        'controller' => 'Frontend\Controller\Frontend',
                         'action'     => 'index',
                     ),
                 ),

@@ -59,27 +59,19 @@ class Module
                 },
                 'CategoriesTableGateway' => function ($sm) {
                     $dbAdapter = $sm->get('Zend\Db\Adapter\Adapter');
-                    $resultSetPrototype = new ResultSet();
-                    $resultSetPrototype->setArrayObjectPrototype(new Categories());
-                    return new TableGateway('categories', $dbAdapter, null, $resultSetPrototype);
+                    return new TableGateway('categories', $dbAdapter, null);
                 },
                 'SubcategoriesTableGateway' => function ($sm) {
                     $dbAdapter = $sm->get('Zend\Db\Adapter\Adapter');
-                    $resultSetPrototype = new ResultSet();
-                    $resultSetPrototype->setArrayObjectPrototype(new Subcategories());
-                    return new TableGateway('subcategories', $dbAdapter, null, $resultSetPrototype);
+                    return new TableGateway('subcategories', $dbAdapter, null);
                 },
                 'ProducersTableGateway' => function ($sm) {
                     $dbAdapter = $sm->get('Zend\Db\Adapter\Adapter');
-                    $resultSetPrototype = new ResultSet();
-                    $resultSetPrototype->setArrayObjectPrototype(new Producers());
-                    return new TableGateway('producers', $dbAdapter, null, $resultSetPrototype);
+                    return new TableGateway('producers', $dbAdapter, null);
                 },
                 'ProductsTableGateway' => function ($sm) {
                     $dbAdapter = $sm->get('Zend\Db\Adapter\Adapter');
-                    $resultSetPrototype = new ResultSet();
-                    $resultSetPrototype->setArrayObjectPrototype(new Products());
-                    return new TableGateway('products', $dbAdapter, null, $resultSetPrototype);
+                    return new TableGateway('products', $dbAdapter, null);
                 },
             ),
         );

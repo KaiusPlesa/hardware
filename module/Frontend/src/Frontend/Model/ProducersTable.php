@@ -28,44 +28,5 @@ class ProducersTable
         }
         return $row;
     }
-
-    public function saveCategories(Categories $categories)
-    {
-        $data = array(
-            'categories_name'  => $categories->categories_name,
-        );
-
-        $prod_id = (int)$categories->prod_id;
-        if ($prod_id == 0) {
-            $this->tableGateway->insert($data);
-        } else {
-            if ($this->getCategories($prod_id)) {
-                $this->tableGateway->update($data, array('prod_id' => $prod_id));
-            } else {
-                throw new \Exception('Form id does not exist');
-            }
-        }
-    }
-        public function editCategories(Categories $Categories)
-    {
-        $data = array(                       
-            'categories_name'  => $categories->categories_name,           
-        );
-         
-        $prod_id = (int)$categories->prod_id;
-        if ($prod_id == 0) {
-            $this->tableGateway->insert($data);
-        } else {
-            if ($this->getCategories($prod_id)) {
-                $this->tableGateway->update($data, array('prod_id' => $prod_id));
-            } else {
-                throw new \Exception('Form id does not exist');
-            }
-        }
-    }
-
-    public function deleteCategories($prod_id)
-    {
-        $this->tableGateway->delete(array('prod_id' => $prod_id));
-    }
+    
 }

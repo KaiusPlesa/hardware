@@ -13,12 +13,7 @@ class Products
     public $subcateg_id;
     public $prod_id;
     public $product_name;    
-    public $product_socket;    
-    public $product_FSB;    
-    public $product_memory_type;    
-    public $product_memory_frequency;    
-    public $product_memory_capacity;    
-    protected $inputFilter;
+    public $product_description;    
 
     public function exchangeArray($data)
     {
@@ -27,11 +22,7 @@ class Products
         $this->subcateg_id     = (!empty($data['subcateg_id'])) ? $data['subcateg_id'] : null;
         $this->prod_id     = (!empty($data['prod_id'])) ? $data['prod_id'] : null;
         $this->product_name  = (!empty($data['product_name'])) ? $data['product_name'] : null;
-        $this->product_socket  = (!empty($data['product_socket'])) ? $data['product_socket'] : null;
-        $this->product_FSB  = (!empty($data['product_FSB'])) ? $data['product_FSB'] : null;
-        $this->product_memory_type  = (!empty($data['product_memory_type'])) ? $data['product_memory_type'] : null;
-        $this->product_memory_frequency  = (!empty($data['product_memory_frequency'])) ? $data['product_memory_frequency'] : null;
-        $this->product_memory_capacity  = (!empty($data['product_memory_capacity'])) ? $data['product_memory_capacity'] : null;
+        $this->product_description  = (!empty($data['product_description'])) ? $data['product_description'] : null;       
     }
     
     public function getArrayCopy()
