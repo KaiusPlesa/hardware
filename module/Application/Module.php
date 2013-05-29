@@ -38,9 +38,9 @@ class Module{
         
          
         // change the layout
-        \Zend\EventManager\EventManager::getSharedManager()->attach('ZfcUser\Controller\UserController', 'dispatch', function($e){
-                $e->getTarget()->layout('layout/user');
-        });
+ //       \Zend\EventManager\EventManager::getSharedManager()->attach('ZfcUser\Controller\UserController', 'dispatch', function($e){
+//                $e->getTarget()->layout('layout/user');
+//        });
         
         $events = $eventManager->getSharedManager();
         
