@@ -1,3 +1,9 @@
+<script src="/js/validators.js" type="text/javascript" charset="utf-8"></script>
+<script src="/js/jquery.validate.min.js" type="text/javascript" charset="utf-8"></script>
+<?php
+$title = 'Sign Up';
+$this->headTitle($title);
+?>
 <?php
 if (!$this->enableRegistration) {
     print "Registration is disabled";
@@ -7,27 +13,36 @@ $form = $this->registerForm;
 $form->prepare();
 $form->setAttribute('action', $this->url('zfcuser/register'));
 $form->setAttribute('method', 'post');
-$form->setAttribute('id', 'target');
+$form->setAttribute('id', 'formSignUp');
 $form->setAttribute('class', 'form-signin');
 ?>
+<div id="carbonForm">
+<h1><?php echo $this->escapeHtml($title); ?></h1>
 
+<div class="fieldContainer">
 <?php echo $this->form()->openTag($form) ?>
 
     <?php foreach ($form as $element): ?>
         
         <?php if ($element instanceof Zend\Form\Element\Button): ?>
-            <div class="control-group no-border">
-                <div style="text-align: right;">
+            
                     <input class="btn btn-primary" type="submit" value="Sign up" id="login-btn">
-                </div>
-            </div>
+              
         <?php elseif ($element instanceof Zend\Form\Element\Captcha): ?>
             <?php echo $this->formCaptcha($element) . $this->formElementErrors($element) ?>
         <?php else: ?>       
-                    <div class="control-group <?=($error ? "error" : "")?>">
+                    <div class="control-group">
                         <div class="controls">
-                            <input type="<?=(strpos($element->getName(),'password')!==false ? 'password':'text')?>" class="input-block-level" name='<?=$element->getName()?>' autofocus="autofocus" placeholder="<?=$element->getLabel()?>" value="<?=$element->getValue()?>">
-                            <span class="help-inline" ><?=$this->formElementErrors($element)?></span>
+                        <?php if($element->getName() == 'user_type'){?>
+                         <input type="<?=(strpos($element->getName(),'password')!==false ? 'password':'text')?>" class="input-block-level" name='<?=$element->getName()?>' id='<?=$element->getName()?>' autofocus="autofocus" placeholder="<?=$element->getLabel()?>" value="<?=$element->getValue()?>" disabled="disabled">                
+                        <?php }else{?>
+                            <input type="<?=(strpos($element->getName(),'password')!==false ? 'password':'text')?>" class="input-block-level" name='<?=$element->getName()?>' id='<?=$element->getName()?>' autofocus="autofocus" placeholder="<?=$element->getLabel()?>" value="<?=$element->getValue()?>">              
+                <?php }?>
+                <span class="help-inline" >
+                <ul>
+                    <li class="liNoP" id="<?php echo "error_".$element->getName(); ?>"><?=$this->formElementErrors($element)?></li>
+                </ul>  
+                </span>
                         </div>
                     </div>
                     
@@ -41,3 +56,5 @@ $form->setAttribute('class', 'form-signin');
     <?php endif ?>
 
 <?php echo $this->form()->closeTag() ?>
+</div>
+</div>

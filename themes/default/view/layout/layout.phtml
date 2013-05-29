@@ -3,7 +3,7 @@
 <html lang="en">
     <head>
         <meta charset="utf-8">
-        <?php echo $this->headTitle('ZF2 '. $this->translate('Skeleton Application'))->setSeparator(' - ')->setAutoEscape(false) ?>
+        <?php echo $this->headTitle(' '. $this->translate('Hardware Compare'))->setSeparator(' - ')->setAutoEscape(false) ?>
 
         <?php echo $this->headMeta()->appendName('viewport', 'width=device-width, initial-scale=1.0') ?>
 
@@ -15,8 +15,8 @@
 
         <!-- Scripts -->
         <?php echo $this->headScript()->prependFile($this->basePath() . '/js/html5.js', 'text/javascript', array('conditional' => 'lt IE 9',))
-                                      ->prependFile($this->basePath() . '/js/bootstrap.min.js')
-                                      ->prependFile($this->basePath() . '/js/jquery.min.js') ?>
+                                        ->prependFile($this->basePath() . '/js/bootstrap.min.js') 
+                                        ->prependFile($this->basePath() . '/js/jquery-1.8.1.min.js')  ?>
 
     </head>
     <body>
@@ -28,10 +28,19 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </a>
-                    <a class="brand" href="<?php echo $this->url('home') ?>"><?php echo $this->translate('Skeleton Application') ?></a>
+                    <a class="brand" href="<?php echo $this->url('home') ?>"><?php echo $this->translate('Hardware Compare') ?></a>
                     <div class="nav-collapse collapse">
                         <ul class="nav">
                             <li class="active"><a href="<?php echo $this->url('home') ?>"><?php echo $this->translate('Home') ?></a></li>
+                            
+                             <?php if($this->zfcUserIdentity()){?>                          
+                            <li class="active"><a href="<?php echo $this->url('zfcuser/logout') ?>"><?php echo $this->translate('Logout') ?></a></li>
+                            <?php }?>
+                            <?php if(!$this->zfcUserIdentity()){?>
+                              <li class="active"><a href="<?php echo $this->url('zfcuser/register') ?>"><?php echo $this->translate('Sign Up') ?></a></li>
+                            <li class="active"><a href="<?php echo $this->url('zfcuser/login') ?>"><?php echo $this->translate('Sign In') ?></a></li>
+                             <?php }?>
+                            
                         </ul>
                     </div><!--/.nav-collapse -->
                 </div>
@@ -39,7 +48,7 @@
         </div>
         <div class="container">
             <?php echo $this->content; ?>
-            <hr>
+            
             <footer>
                 <p>&copy; 2005 - <?php echo date('Y') ?> by Zend Technologies Ltd. <?php echo $this->translate('All rights reserved.') ?></p>
             </footer>

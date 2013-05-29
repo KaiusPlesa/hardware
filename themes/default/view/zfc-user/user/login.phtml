@@ -1,4 +1,9 @@
 <?php
+
+$title = 'Login';
+$this->headTitle($title);
+?>
+<?php
 $form = $this->loginForm;
 $form->prepare();
 $form->setAttribute('action', $this->url('zfcuser/login'));
@@ -6,15 +11,24 @@ $form->setAttribute('method', 'post');
 $form->setAttribute('id', 'target');
 $form->setAttribute('class', 'form-signin');
 ?>
-
+<div id="carbonForm">
+<h1><?php echo $this->escapeHtml($title); ?></h1>
+<div class="fieldContainer">  
+       
 <?php echo $this->form()->openTag($form) ?>
 <?php echo $this->formElementErrors($form->get('identity')) ?>
 
     <div class="control-group">
+    <div class="controls">
         <input type="text" class="input-block-level" autofocus="autofocus" placeholder="<?=$form->get('identity')->getLabel()?>" name='<?=$form->get('identity')->getName()?>' value="<?=$form->get('identity')->getValue()?>">
-    </div>
+        <span class="help-inline" ></span>
+     </div>
+     </div>
     <div class="control-group">
+    <div class="controls">
         <input type="password" class="input-block-level" placeholder="<?=$form->get('credential')->getLabel()?>" name='<?=$form->get('credential')->getName()?>' value="<?=$form->get('credential')->getValue()?>">
+        <span class="help-inline" ></span>
+    </div>
     </div>
     <div class="control-group no-border">
         <div style="text-align: right;">
@@ -32,5 +46,6 @@ $form->setAttribute('class', 'form-signin');
 <p style="padding-left: 20px;">
 Not registered? <a href="<?php echo $this->url('zfcuser/register') . ($this->redirect ? '?redirect='.$this->redirect : '') ?>">Sign up!</a>
 </p>
-<?php endif; ?>
-
+<?php endif; ?> 
+ </div>
+ </div>

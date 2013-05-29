@@ -242,12 +242,12 @@ return array(
                         'options' => array(
                             'route' => '/register[/:user_type]',
                             'constraints' => array(
-                                'user_type'  => 'webmaster|blogowner',
+                                'user_type'  => 'Member',
                             ),
                             'defaults' => array(
                                 'controller' => 'zfcuser',
                                 'action'     => 'register',
-                                'user_type'  => 'webmaster'
+                                'user_type'  => 'Member'
                             ),
                         ),
                     ),

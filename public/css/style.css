@@ -1,6 +1,18 @@
+*{
+    /* Resetting the default styles of the page */
+    margin:0;
+    padding:0;
+}
+
+
 body {
     padding-top: 60px;
     padding-bottom: 40px;
+    /* Setting default text color, background and a font stack */
+    font-size:0.825em;
+    color:#eee;
+    background:url("../img/bg.png") repeat-x #222222;
+    font-family:Arial, Helvetica, sans-serif;
 }
 
 .zf-green {
@@ -34,4 +46,402 @@ div.container a.brand {
     background: url("../img/zf2-logo.png") no-repeat scroll 0 10px transparent;
     margin-left: 0;
     padding: 8px 20px 12px 40px;
+    color:rgb(34, 188, 226);
 }
+div.container a.brand:hover {
+    background: url("../img/zf2-logo.png") no-repeat scroll 0 10px transparent;
+    margin-left: 0;
+    padding: 8px 20px 12px 40px;
+    color:rgb(245, 210, 25);
+}
+.tableUsers li{ 
+    color: #000;
+    text-decoration: none;
+    background-color: rgb(34, 188, 226);
+    text-shadow: 1px 1px 2px #fff;
+    border-radius: 1px 1px 1px 1px;
+    padding: 3px 10px 3px 10px;
+    width: 60px;
+    list-style: none;
+    text-align: center;
+    -webkit-box-shadow: 0 0 8px lightblue;
+    box-shadow: 0 0 8px lightblue;
+    margin: 0 auto;
+}
+.tableUsers li:hover{
+    color: rgb(12, 0, 0);
+    text-decoration: none;
+    background-color: rgb(245, 210, 25);
+    text-shadow: 1px 1px 2px rgb(245, 245, 245);
+    border-radius: 1px 1px 1px 1px;
+    padding: 3px 10px 3px 10px;
+    width: 60px;
+    list-style: none;
+    text-align: center;
+    -webkit-box-shadow: 0 0 8px lightblue;
+    box-shadow: 0 0 8px lightblue;
+    margin: 0 auto;    
+}
+.tableUsers a{
+    text-decoration: none;
+}
+.tableUsers a:hover{
+    text-decoration: none;
+}
+.tableUsers{
+    width: 100%;
+    border: 1px solid #ccc;
+    border-radius: 1px 1px 1px 1px;
+    background-color: #fff;
+    color: #000;
+}
+.tableUsers td{
+   padding-left: 10px;
+   padding-bottom: 5px;
+   padding-top: 5px;
+   border-right: solid 1px #ccc;
+   border-bottom: solid 1px #ccc;
+}
+.tableUsers th{
+    padding-left: 10px;
+    padding-bottom: 5px;
+    padding-top: 5px;
+    border-right: solid 1px #ccc;
+    border-bottom: solid 1px #ccc;
+    background-color: rgb(245, 210, 25);
+    color: rgb(0, 0, 0);
+    text-shadow: 1px 1px 1px #fff;
+}
+.tableUsers tr:hover{ 
+    background-color:#e3e3e3;  
+}
+.userTableActions{
+    background: none;
+    padding-left: 10px!important;
+    padding-right: 10px;
+}
+.container{
+    width: 95%!important;
+}
+hr{
+    margin: 20px 0!important;
+    border: 0;
+    border-bottom: 1px solid #fff;
+}
+.navbar-inverse .navbar-inner {
+    border-color: rgb(255, 255, 255);
+    box-shadow: 0px 1px 200px rgb(0, 214, 255);
+}
+.navbar-inverse .nav .active>a,
+.navbar-inverse .nav .active>a:focus {
+    color: #fff;
+    background-color: #111;
+    border-color: rgb(255, 255, 255); 
+}
+.nav a:hover{
+    color: #fff;
+    background-color: rgb(34, 188, 226)!important; 
+}
+
+#carbonForm{
+    /* The main form container */
+    background-color:#1C1C1C;
+    border:1px solid #080808;
+    margin:20px auto;
+    padding:20px;
+    width:270px;
+    
+    -moz-box-shadow:0 0 1px #444 inset;
+    -webkit-box-shadow:0 0 1px #444 inset;
+    box-shadow:0 0 1px #444 inset;
+}
+
+#carbonForm h1{
+    /* The form heading */
+    font-family:Century Gothic,Myriad Pro,Arial,Helvetica,sans-serif;
+    font-size:60px;
+    font-weight:normal;
+    padding:0 0 30px 10px;
+    text-align:left;
+    -webkit-text-shadow: 0 0 8px lightblue;
+    text-shadow: 0 0 8px lightblue; 
+    text-align: center;
+}
+#carbonForm input{
+    margin: 0 auto;
+    float:right;
+    
+}
+#carbonForm span{
+    
+}
+#carbonForm .addButton{
+    margin:0 auto;
+    float: none;
+    color: #000;
+    text-decoration: none;
+    background-color: rgb(34, 188, 226);
+    text-shadow: 1px 1px 2px #fff;
+    border-radius: 1px 1px 1px 1px;
+    padding: 3px 10px 3px 10px;
+    width: 100px;
+    list-style: none;
+    text-align: center;
+    margin:0 auto;
+    border:none;
+    margin-top: 20px;
+}
+#carbonForm .addButton:hover{
+    color: rgb(12, 0, 0);
+    text-decoration: none;
+    background-color: rgb(245, 210, 25);
+    text-shadow: 1px 1px 2px rgb(245, 245, 245);
+    border-radius: 1px 1px 1px 1px;
+    padding: 3px 10px 3px 10px;
+    width: 100px;
+    list-style: none;
+    text-align: center;
+    -webkit-box-shadow: 0 0 8px lightblue;
+    box-shadow: 0 0 8px lightblue; 
+    border: none;
+    margin-top: 20px;
+}
+
+.fieldContainer{
+    /* The light rounded section, which contans the fields */
+    background-color:#1E1E1E;
+    border:1px solid #0E0E0E;
+    padding:30px 10px;
+    
+    /* CSS3 box shadow, used as an inner glow */
+    -moz-box-shadow:0 0 20px #292929 inset;
+    -webkit-box-shadow:0 0 20px #292929 inset;
+    box-shadow:0 0 20px #292929 inset;
+}
+
+#carbonForm,.fieldContainer,.errorTip{
+    /* Rounding the divs at once */
+    -moz-border-radius:12px;
+    -webkit-border-radius:12px;
+    border-radius:12px;
+}
+
+
+.formRow{
+    height:35px;
+    padding:10px;
+    position:relative;
+}
+
+.label{
+    float:left;
+    padding:0 20px 0 0;
+    text-align:right;
+    width:70px;
+}
+
+label{
+    font-family:Century Gothic,Myriad Pro,Arial,Helvetica,sans-serif;
+    font-size:11px;
+    letter-spacing:1px;
+    
+}
+
+.field{
+    float:left;
+}
+
+.field input{
+    /* The text boxes */
+    border:1px solid white;
+    color:#666666;
+    font-family:Arial,Helvetica,sans-serif;
+    font-size:22px;
+    padding:4px 5px;
+    background:url("img/box_bg.png") repeat-x scroll left top #FFFFFF;
+    outline:none; /* Preventing the default Safari and Chrome text box highlight */
+}
+
+.signupButton{
+    /* The submit button container */
+    text-align:center;
+    padding:30px 0 10px;
+}
+
+#submit{
+    /* The submit button */
+    border:1px solid #f4f4f4;
+    cursor:pointer;
+    height:40px;
+    text-indent:-9999px;
+    text-transform:uppercase;
+    width:110px;
+    
+    background:url("img/submit.png") no-repeat center center #d0ecfd;
+    
+    -moz-border-radius:6px;
+    -webkit-border-radius:6px;
+    border-radius:6px;
+}
+
+#submit.active{
+    /* Marking the submit button as active adds the preloader gif as background */
+    background-image:url("img/preloader.gif");
+}
+
+#submit:hover{
+    background-color:#dcf2ff;
+    border:1px solid white;
+}
+
+input:hover,
+input:focus{
+    -moz-box-shadow:0 0 8px lightblue;
+    -webkit-box-shadow:0 0 8px lightblue;
+    box-shadow:0 0 8px lightblue;
+}
+
+.errorTip{
+    /* The error divs */
+    background-color:#970F08;
+    color:white;
+    font-size:10px;
+    height:26px;
+    letter-spacing:0.4px;
+    margin-left:20px;
+    padding:5px 0 5px 10px;
+    position:absolute;
+    text-shadow:1px 1px 0 #555555;
+    width:200px;
+    right:-130px;
+}
+
+
+/* The styles below are only necessary for the styling of the demo page: */
+
+#footer{
+    position:fixed;
+    bottom:0;
+    width:100%;
+    padding:10px;
+    color:#eee;
+    text-align:center;
+    font-weight:normal;
+    font-style:italic;
+}
+
+a, a:visited {
+    color:rgb(34, 188, 226);
+    text-decoration:none;
+    outline:none;
+}
+
+a:hover{
+    text-decoration:none;
+    color:rgb(245, 210, 25);
+}
+
+a img{
+    border:none;
+}
+h1{
+    -webkit-text-shadow: 0 0 8px lightblue;
+    text-shadow: 0 0 8px lightblue;
+    font-size: 16px;
+}
+.delButtonConf{
+    margin:0 auto;
+    float: none;
+    color: #000;
+    text-decoration: none;
+    background-color: rgb(34, 188, 226);
+    text-shadow: 1px 1px 2px #fff;
+    border-radius: 1px 1px 1px 1px;
+    padding: 3px 10px 3px 10px;
+    width: 60px!important;
+    list-style: none;
+    text-align: center;
+
+    border:none;
+}
+.delButtonConf:hover{
+    color: rgb(12, 0, 0);
+    text-decoration: none;
+    background-color: rgb(245, 210, 25);
+    text-shadow: 1px 1px 2px rgb(245, 245, 245);
+    border-radius: 1px 1px 1px 1px;
+    padding: 3px 10px 3px 10px;
+    width: 60px!important;
+    list-style: none;
+    text-align: center;
+    -webkit-box-shadow: 0 0 8px lightblue;
+    box-shadow: 0 0 8px lightblue; 
+    border: none;
+}
+.delConf{
+    width:200px;
+    margin:0 auto;
+    text-align: center;
+}
+.hero-unit{
+    background-color: rgb(34, 188, 226);
+    color: rgb(0, 0, 0);
+    font-size: 12px;
+    text-shadow: 1px 1px 2px #ccc;
+}
+.welcome{
+    padding-top: 10px;
+    padding-left: 10px;
+}
+.welcome:hover{    
+    color: rgb(245, 210, 25);
+    padding-top: 10px;
+    padding-left: 10px;
+}
+.liNoP{
+    list-style: none;
+    color:red;
+    
+}
+.liNoP li{
+    font-family: Century Gothic,Myriad Pro,Arial,Helvetica,sans-serif;
+    font-size: 11px;
+    letter-spacing: 1px;
+    list-style: none;
+    margin-left: -21px;
+}
+#signupForm li{
+    list-style: none;
+    color:red;
+    margin-left: -22px;
+}
+#loginForm li{
+    list-style: none;
+    color:red;
+    margin-left: -22px;
+}
+input{
+    width: 235px;
+}
+dd{
+    margin-left: 0px;
+}
+.loginErrorFix{
+    text-align: center;
+}
+.userActive{
+     color:green;
+}
+.userDisabled{
+     color:red;
+}
+.navbar-inverse .navbar-inner {
+ background-color: #f60!important;   
+}
+.liNoP label {
+    font-family: Century Gothic,Myriad Pro,Arial,Helvetica,sans-serif;
+    font-size: 11px;
+    letter-spacing: 1px;
+}
+
+
