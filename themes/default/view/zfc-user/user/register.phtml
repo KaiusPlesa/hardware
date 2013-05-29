@@ -14,13 +14,7 @@ $form->setAttribute('class', 'form-signin');
 <?php echo $this->form()->openTag($form) ?>
 
     <?php foreach ($form as $element): ?>
-        <?
-        if($this->formElementErrors($element)){
-            $error = true;
-        }else{
-            $error = false;
-        }
-        ?>
+        
         <?php if ($element instanceof Zend\Form\Element\Button): ?>
             <div class="control-group no-border">
                 <div style="text-align: right;">
@@ -29,13 +23,7 @@ $form->setAttribute('class', 'form-signin');
             </div>
         <?php elseif ($element instanceof Zend\Form\Element\Captcha): ?>
             <?php echo $this->formCaptcha($element) . $this->formElementErrors($element) ?>
-        <?php else: ?>
-        
-        <?    if($element->getName() == "user_type"){
-                echo $this->formHidden($form->get($element->getName())); 
-            }else{
-            
-                ?>
+        <?php else: ?>       
                     <div class="control-group <?=($error ? "error" : "")?>">
                         <div class="controls">
                             <input type="<?=(strpos($element->getName(),'password')!==false ? 'password':'text')?>" class="input-block-level" name='<?=$element->getName()?>' autofocus="autofocus" placeholder="<?=$element->getLabel()?>" value="<?=$element->getValue()?>">
