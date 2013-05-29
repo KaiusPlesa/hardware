@@ -1,0 +1,36 @@
+<?php
+$form = $this->loginForm;
+$form->prepare();
+$form->setAttribute('action', $this->url('zfcuser/login'));
+$form->setAttribute('method', 'post');
+$form->setAttribute('id', 'target');
+$form->setAttribute('class', 'form-signin');
+?>
+
+<?php echo $this->form()->openTag($form) ?>
+<?php echo $this->formElementErrors($form->get('identity')) ?>
+
+    <div class="control-group">
+        <input type="text" class="input-block-level" autofocus="autofocus" placeholder="<?=$form->get('identity')->getLabel()?>" name='<?=$form->get('identity')->getName()?>' value="<?=$form->get('identity')->getValue()?>">
+    </div>
+    <div class="control-group">
+        <input type="password" class="input-block-level" placeholder="<?=$form->get('credential')->getLabel()?>" name='<?=$form->get('credential')->getName()?>' value="<?=$form->get('credential')->getValue()?>">
+    </div>
+    <div class="control-group no-border">
+        <div style="text-align: right;">
+            <input class="btn btn-primary" type="submit" value="Sign in" id="login-btn">
+        </div>
+    </div>
+
+    <?php if ($this->redirect): ?>
+        <input type="hidden" name="redirect" value="<?php echo $this->escapeHtml($this->redirect) ?>" />
+    <?php endif ?>
+
+<?php echo $this->form()->closeTag() ?>
+
+<?php if ($this->enableRegistration) : ?>
+<p style="padding-left: 20px;">
+Not registered? <a href="<?php echo $this->url('zfcuser/register') . ($this->redirect ? '?redirect='.$this->redirect : '') ?>">Sign up!</a>
+</p>
+<?php endif; ?>
+
