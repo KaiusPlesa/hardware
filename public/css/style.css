@@ -443,5 +443,47 @@ dd{
     font-size: 11px;
     letter-spacing: 1px;
 }
+.clearFix{
+    height:40px;
+}
+#manufacturer{
+    /* The main form container */
+    background-color:#e8e8e8;
+    border:1px solid #080808;
+    margin:20px auto;
+    padding:20px;
+    width:177px;
+    height:100px;
+    float:left;
+    margin-left: 20px;  
+    -moz-box-shadow:0 0 1px #444 inset;
+    -webkit-box-shadow:0 0 1px #444 inset;
+    box-shadow:0 0 1px #444 inset;
+    color:#000;
+}
+
+#manufacturer h1{
+    /* The form heading */
+    font-family:Century Gothic,Myriad Pro,Arial,Helvetica,sans-serif;
+    font-size:20px;
+    font-weight:bolder;
+    text-align:left;
+    -webkit-text-shadow: 0 0 8px lightblue;
+    text-shadow: 0 0 8px lightblue; 
+    text-align: center;
+    color:#e8e8e8;
+    
+}
+.manufacturerContainer{
+    /* The light rounded section, which contans the fields */
+    background-color:#1C1C1C;
+    border:1px solid #0E0E0E;   
+    /* CSS3 box shadow, used as an inner glow */
+    -moz-box-shadow:0 0 20px #292929 ;
+    -webkit-box-shadow:0 0 20px #292929 ;
+    box-shadow:0 0 20px #292929 ;
+    margin-top:90px;
+    opacity:0.6
+}
 
 

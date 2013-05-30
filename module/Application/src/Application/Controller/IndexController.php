@@ -10,10 +10,42 @@ use Zend\Form\Element;
 class IndexController extends AbstractActionController{
     
     public function indexAction(){
-    
+        
+       //if(!$this->getServiceLocator()->get('zfcuserauthservice')->hasIdentity()) return $this->redirect()->toRoute('zfcuser/login');
+        $manufacturers = $this->getServiceLocator()->get("ZeDbManager")->get('Application\Model\Manufacturer');
+
+       $manufacturer = $manufacturers->getAll(); 
+       //$products = $product->getAll(); 
+       //$product_detail = $product_details->getAll(); 
+ 
+       $data = array();
+       $data['manufacturer'] = $manufacturer;
+       return new ViewModel($data);
+    }
+    public function productsAction(){
+            
         //if(!$this->getServiceLocator()->get('zfcuserauthservice')->hasIdentity()) return $this->redirect()->toRoute('zfcuser/login');
-                      
-        return new ViewModel();
+
+        $idBlog = $this->params()->fromRoute('id');
+        $product_details = $this->getServiceLocator()->get("ZeDbManager")->get('Application\Model\ProductDetails');
+        
+        
+        //$product_details->getByManufacturerIdAndProductID(1,1);
+               
+       $results = $product_details->getAllByManufacturerID($idBlog);
+       //$products = $product->getAll(); 
+       //$product_detail = $product_details->getAll();       
+       $data = array();
+       $data['result'] = $results;
+       //$data['products'] = $products;
+       //$data['products_detail'] = $product_detail;
+//       
+//       echo"<pre>";
+//       print_r($data);
+//       echo"</pre>";
+        
+  
+       return new ViewModel($data);
     }
     
     public function categoriesAction(){
