@@ -20,6 +20,7 @@
 
     </head>
     <body>
+
         <div class="navbar navbar-inverse navbar-fixed-top">
             <div class="navbar-inner">
                 <div class="container">
@@ -30,19 +31,38 @@
                     </a>
                     <a class="brand" href="<?php echo $this->url('home') ?>"><?php echo $this->translate('Hardware Compare') ?></a>
                     <div class="nav-collapse collapse">
-                        <ul class="nav">
-                            <li class="active"><a href="<?php echo $this->url('home') ?>"><?php echo $this->translate('Home') ?></a></li>
-                              <li class="active"><a href="<?php echo $this->url('manufacturer', array('action' => 'manufacturers')) ?>"><?php echo $this->translate('Manufacturers') ?></a></li>
-                            
-                             <?php if($this->zfcUserIdentity()){?>                          
-                            <li class="active"><a href="<?php echo $this->url('zfcuser/logout') ?>"><?php echo $this->translate('Logout') ?></a></li>
+                    
+                    <?php //dropdown menu ?>
+                    <ul class="nav">
+                    <li class="active"><a href="<?php echo $this->url('home') ?>"><?php echo $this->translate('Home') ?></a></li>
+                      <li class="dropdown active" id="menu1">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#menu1">
+                          Manufacturers
+                          <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                          <li><a class="active" href="<?php echo $this->url('manufacturer', array('action' => 'manufacturers')) ?>"><?php echo $this->translate('All Manufacturers') ?></li>
+                          <li><a href="/list/2.html">Create</a></li>
+                          <li><a href="/list/3.html">Delete</a></li>
+                        </ul>
+                      </li>
+
+                      <li class="dropdown" id="menu2">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#menu2">
+                          Users
+                          <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <?php if($this->zfcUserIdentity()){?>                          
+                            <li><a href="<?php echo $this->url('zfcuser/logout') ?>"><?php echo $this->translate('Logout') ?></a></li>
                             <?php }?>
                             <?php if(!$this->zfcUserIdentity()){?>
-                              <li class="active"><a href="<?php echo $this->url('zfcuser/register') ?>"><?php echo $this->translate('Sign Up') ?></a></li>
-                            <li class="active"><a href="<?php echo $this->url('zfcuser/login') ?>"><?php echo $this->translate('Sign In') ?></a></li>
+                              <li><a href="<?php echo $this->url('zfcuser/register') ?>"><?php echo $this->translate('Sign Up') ?></a></li>
+                            <li><a href="<?php echo $this->url('zfcuser/login') ?>"><?php echo $this->translate('Sign In') ?></a>
                              <?php }?>
-                            
                         </ul>
+                      </li>                    
+                    </ul>
                     </div><!--/.nav-collapse -->
                 </div>
             </div>
