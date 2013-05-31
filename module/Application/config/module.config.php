@@ -80,11 +80,12 @@ return array(
              'manufacturer' => array(
                 'type'    => 'segment',
                 'options' => array(
-                    'route'    => '/All-[:action]-Made-By-[:manufacturer][/:id]',
+                    'route'    => '/[:action][/:manufacturer][/:product][/:id]',
                     'constraints' => array(
                     'controller' => '[a-zA-Z][a-zA-Z0-9_-]*',
                         'action' => '[a-zA-Z][a-zA-Z0-9_-]*',
                         'manufacturer' => '[a-zA-Z][a-zA-Z0-9_-]*',
+                        'product' => '[a-zA-Z][a-zA-Z0-9_-]*',
                         'id'     => '[0-9]+',
                     ),
                     'defaults' => array(

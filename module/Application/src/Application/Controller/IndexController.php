@@ -20,6 +20,19 @@ class IndexController extends AbstractActionController{
  
        $data = array();
        $data['manufacturer'] = $manufacturer;
+       return new ViewModel();
+    }
+     public function manufacturersAction(){
+        
+       //if(!$this->getServiceLocator()->get('zfcuserauthservice')->hasIdentity()) return $this->redirect()->toRoute('zfcuser/login');
+        $manufacturers = $this->getServiceLocator()->get("ZeDbManager")->get('Application\Model\Manufacturer');
+
+       $manufacturer = $manufacturers->getAll(); 
+       //$products = $product->getAll(); 
+       //$product_detail = $product_details->getAll(); 
+ 
+       $data = array();
+       $data['manufacturer'] = $manufacturer;
        return new ViewModel($data);
     }
     public function productsAction(){
@@ -27,12 +40,12 @@ class IndexController extends AbstractActionController{
         //if(!$this->getServiceLocator()->get('zfcuserauthservice')->hasIdentity()) return $this->redirect()->toRoute('zfcuser/login');
 
         $idBlog = $this->params()->fromRoute('id');
-        $product_details = $this->getServiceLocator()->get("ZeDbManager")->get('Application\Model\ProductDetails');
+        $product_description = $this->getServiceLocator()->get("ZeDbManager")->get('Application\Model\ProductDescription');
         
         
         //$product_details->getByManufacturerIdAndProductID(1,1);
                
-       $results = $product_details->getAllByManufacturerID($idBlog);
+       $results = $product_description->getAllByManufacturerID($idBlog);
        //$products = $product->getAll(); 
        //$product_detail = $product_details->getAll();       
        $data = array();

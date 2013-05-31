@@ -472,6 +472,7 @@ dd{
     text-shadow: 0 0 8px lightblue; 
     text-align: center;
     color:#e8e8e8;
+    margin-top:-20px
     
 }
 .manufacturerContainer{
@@ -482,8 +483,12 @@ dd{
     -moz-box-shadow:0 0 20px #292929 ;
     -webkit-box-shadow:0 0 20px #292929 ;
     box-shadow:0 0 20px #292929 ;
-    margin-top:90px;
-    opacity:0.6
+    margin-top:-20px;
+    height:100px;
+    opacity:0.6;
+    text-align: justify;
+    color:#fff;
+    
 }
 
 

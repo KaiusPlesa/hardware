@@ -1,5 +1,8 @@
+<?php
+  
+?>
 <?php 
-    if($this->result>0){
+
  foreach($this->manufacturer as $row){?>      
 <div id="manufacturer">
     <div class="manufacturerContainer">
@@ -7,5 +10,5 @@
         <h1><a href="<?=$this->url('manufacturer', array('action' => 'products','manufacturer' => $row['manufacturer_name'], 'id' => $row['manufacturer_id']));?>"><?=$row['manufacturer_name']?></a></h1> 
     </div>
 </div>
- <?php }}?>
+ <?php }?>
  

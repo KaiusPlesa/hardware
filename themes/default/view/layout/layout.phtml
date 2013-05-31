@@ -32,6 +32,7 @@
                     <div class="nav-collapse collapse">
                         <ul class="nav">
                             <li class="active"><a href="<?php echo $this->url('home') ?>"><?php echo $this->translate('Home') ?></a></li>
+                              <li class="active"><a href="<?php echo $this->url('manufacturer', array('action' => 'manufacturers')) ?>"><?php echo $this->translate('Manufacturers') ?></a></li>
                             
                              <?php if($this->zfcUserIdentity()){?>                          
                             <li class="active"><a href="<?php echo $this->url('zfcuser/logout') ?>"><?php echo $this->translate('Logout') ?></a></li>
