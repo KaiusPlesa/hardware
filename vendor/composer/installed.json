@@ -283,5 +283,53 @@
         "keywords": [
             "zf2"
         ]
+    },
+    {
+        "name": "bjyoungblood/BjyProfiler",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/bjyoungblood/BjyProfiler.git",
+            "reference": "1ca31611b6960bcd744dced95764e3627e8d807a"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/bjyoungblood/BjyProfiler/zipball/1ca31611b6960bcd744dced95764e3627e8d807a",
+            "reference": "1ca31611b6960bcd744dced95764e3627e8d807a",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.3",
+            "zendframework/zendframework": ">=2.1.0"
+        },
+        "time": "2013-03-25 15:24:27",
+        "type": "library",
+        "installation-source": "source",
+        "autoload": {
+            "psr-0": {
+                "BjyProfiler": "src/"
+            },
+            "classmap": [
+                "./Module.php"
+            ]
+        },
+        "notification-url": "http://packagist.org/downloads/",
+        "authors": [
+            {
+                "name": "Ben Youngblood",
+                "email": "bx.youngblood@gmail.com",
+                "homepage": "http://bjyoungblood.com/",
+                "role": "Developer"
+            }
+        ],
+        "description": "Database profiler for Zend\\Db (also plugin for ZendDeveloperTools)",
+        "homepage": "https://github.com/bjyoungblood/BjyProfiler",
+        "keywords": [
+            "db",
+            "profiler",
+            "zdt",
+            "zf2"
+        ]
     }
 ]

@@ -4,6 +4,7 @@ $modules = array(
     'ZfcUser',
     'ZeDb',
     'ZendDeveloperTools',
+    'BjyProfiler',
     'Application',
     
 );

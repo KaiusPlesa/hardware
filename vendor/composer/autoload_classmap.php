@@ -6,6 +6,7 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'BjyProfiler\\Module' => $vendorDir . '/bjyoungblood/BjyProfiler/Module.php',
     'ZeDb\\DatabaseManager' => $vendorDir . '/zendexperts/ze-db/src/ZeDb/DatabaseManager.php',
     'ZeDb\\Entity' => $vendorDir . '/zendexperts/ze-db/src/ZeDb/Entity.php',
     'ZeDb\\EntityInterface' => $vendorDir . '/zendexperts/ze-db/src/ZeDb/EntityInterface.php',
