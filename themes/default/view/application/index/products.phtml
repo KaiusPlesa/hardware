@@ -1,12 +1,15 @@
-<?php 
-    if($this->result>0){
-        foreach($this->result as $row){?>      
-            <div id="manufacturer">
-            <h1><a href="<?=$this->url('manufacturer', array('action' => 'manufacturer', 'product' => $row['product_name'],'id' => $row['product_id']));?>"><?=$row['product_name']?></a></h1> 
-            
-                <div class="manufacturerContainer">    
-                  <?= substr($row['product_description'], 0, 100)?>  
-                </div>
+<?php
+           
+
+    if($this->product>0){
+        foreach($this->product as $row){?>
+<div class="product">
+<div class="productName">                
+                 <a href="<?=$this->url('categories', array('action' => 'product', 'product' => $row['product_name'],'id' => $row['product_id']));?>"><?=$row['name']?></a>                
+                 </div> 
+              <div class="productContent"> 
+                  <?= substr($row['description'], 0, 120)."..."?><a href="<?=$this->url('categories', array('action' => 'product', 'product' => $row['product_name'],'id' => $row['product_id']));?>">read more</a>  
+                 </div>                
             </div>
         <?php
         } ?>

@@ -1,0 +1,12 @@
+<?php 
+if($this->categ>0){
+ foreach($this->categ as $row){?>      
+<div class="manufacturer">
+    
+     <a href="<?=$this->url('categories', array('action' => 'products','categorie' => $row['type']));?>"><img src="../img/product_type/<?=$row['img']?>" class="manufacturerImg"></a>
+        <?php /*
+        <h1><a href="<?=$this->url('manufacturer', array('action' => 'products','manufacturer' => $row['manufacturer_name'], 'id' => $row['manufacturer_id']));?>"><?=$row['manufacturer_name']?></a></h1> 
+    */?>
+</div>
+ <?php }}?>
+ 

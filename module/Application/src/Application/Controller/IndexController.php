@@ -15,28 +15,49 @@ class IndexController extends AbstractActionController{
         $manufacturers = $this->getServiceLocator()->get("ZeDbManager")->get('Application\Model\Manufacturer');
 
        $manufacturer = $manufacturers->getAll(); 
-       //$products = $product->getAll(); 
-       //$product_detail = $product_details->getAll(); 
  
        $data = array();
        $data['manufacturer'] = $manufacturer;
        return new ViewModel();
     }
-     public function manufacturersAction(){
+     public function categoriesAction(){
         
-       //if(!$this->getServiceLocator()->get('zfcuserauthservice')->hasIdentity()) return $this->redirect()->toRoute('zfcuser/login');
-        $manufacturers = $this->getServiceLocator()->get("ZeDbManager")->get('Application\Model\Manufacturer');
+        $categorie = $this->params()->fromRoute('categorie');
 
-       $manufacturer = $manufacturers->getAll(); 
-       //$products = $product->getAll(); 
-       //$product_detail = $product_details->getAll(); 
- 
+        $product_type = $this->getServiceLocator()->get("ZeDbManager")->get('Application\Model\ProductType');
+
+       $categ = $product_type->getAllByCategorie($categorie); 
+       
        $data = array();
-       $data['manufacturer'] = $manufacturer;
+       $data['categ'] = $categ;
        return new ViewModel($data);
     }
     public function productsAction(){
-            
+
+        $products = $this->getServiceLocator()->get("ZeDbManager")->get('Application\Model\Products');
+        $product_types = $this->getServiceLocator()->get("ZeDbManager")->get('Application\Model\ProductType');
+        $categorie = $this->params()->fromRoute('categorie');
+        
+        if($categorie === "AllProducts"){
+            $product = $products->getAll();
+        }else{            
+            $product = $products->getAllByProduct($categorie);
+        }
+        $product_type = $product_types->getAll();                 
+   
+        $data = array();
+        $data['categorie'] = $product_type;
+        $data['product'] = $product;
+      
+        //echo"<pre>";
+        //print_r($data);
+        //echo"</pre>";
+         
+       return new ViewModel($data);
+    }
+       
+    public function productAction(){
+                            
         //if(!$this->getServiceLocator()->get('zfcuserauthservice')->hasIdentity()) return $this->redirect()->toRoute('zfcuser/login');
 
         $idBlog = $this->params()->fromRoute('id');
@@ -59,91 +80,6 @@ class IndexController extends AbstractActionController{
         
   
        return new ViewModel($data);
-    }
-    
-    public function categoriesAction(){
-        
-        if(!$this->getServiceLocator()->get('zfcuserauthservice')->hasIdentity()) return $this->redirect()->toRoute('zfcuser/login');
-
-        $user = $this->getServiceLocator()->get('zfcuserauthservice')->getIdentity();
-        if(empty($user)) return $this->redirect()->toRoute('zfcuser/login');
-        
-        //only allowed for admin
-        $userType = $user->getUserType();
-        if($userType != "admin") return $this->redirect()->toRoute("posts");
-        
-        $categoriesTable  = $this->getServiceLocator()->get("ZeDbManager")->get('Application\Model\Categories');
-        $categories = $categoriesTable->getAll();
-        
-        $data = array();
-        $data['messages'] = getMessages($this->flashMessenger());    
-        $data['categories'] = $categories;
-        
-        return new ViewModel($data); 
-    }
-    
-    public function categoriesaddAction(){
-        
-        if(!$this->getServiceLocator()->get('zfcuserauthservice')->hasIdentity()) return $this->redirect()->toRoute('zfcuser/login');
-
-        $user = $this->getServiceLocator()->get('zfcuserauthservice')->getIdentity();
-        if(empty($user)) return $this->redirect()->toRoute('zfcuser/login');
-        
-        //only allowed for admin
-        $userType = $user->getUserType();
-        if($userType != "admin") return $this->redirect()->toRoute("posts");
-        
-        $data = array();
-        
-        $form    = new \Application\Form\CategoryAdd();
-        $form->setServiceLocator($this->getServiceLocator());
-        $form->prepareElements();
-        
-        $request = $this->getRequest();
-        if ($request->isPost()) {
-            
-            $form->setData($request->getPost());
-            
-            if ($form->isValid()) {
-                $dataForm = $form->getData();
-                
-                unset($dataForm['save_new']);
-                unset($dataForm['security']);
-                
-                //get categories table        
-                $categoriesTable  = $this->getServiceLocator()->get("ZeDbManager")->get('Application\Model\Categories');
-        
-                //create entity
-                $category = $categoriesTable->create($dataForm);
-
-                //save in db
-                $categoriesTable->save($category);
-                
-                //add success message
-                addMessage($this->flashMessenger(), array(
-                    "message" => "The ".$category->name." category successfully saved!",
-                    "title" => "Category Saved",
-                    "type" => "success"
-                ));
-                
-                // Redirect to list of categories
-                return $this->redirect()->toRoute('categories');
-            }else{
-                if (!$this->flashMessenger()->hasMessages()){
-                    addMessage($this->flashMessenger(), array(
-                        "message" => "The category typed is not valid. Please modify!",
-                        "title" => "Form Invalid",
-                        "type" => "error"
-                    ));
-                }
-            }
-            
-        } 
-        
-        $data['messages'] = getMessages($this->flashMessenger());         
-        $data['form'] = $form;   
-         
-        return new ViewModel($data);
          
     }
     

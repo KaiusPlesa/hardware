@@ -37,17 +37,40 @@
                     <li class="active"><a href="<?php echo $this->url('home') ?>"><?php echo $this->translate('Home') ?></a></li>
                       <li class="dropdown active" id="menu1">
                         <a class="dropdown-toggle" data-toggle="dropdown" href="#menu1">
-                          Manufacturers
+                          Categories
                           <b class="caret"></b>
                         </a>
                         <ul class="dropdown-menu">
-                          <li><a class="active" href="<?php echo $this->url('manufacturer', array('action' => 'manufacturers')) ?>"><?php echo $this->translate('All Manufacturers') ?></li>
-                          <li><a href="/list/2.html">Create</a></li>
-                          <li><a href="/list/3.html">Delete</a></li>
-                        </ul>
+                        
+                          <li><a class="active" href="<?php echo $this->url('categories', array('action' => 'categories','categorie'=>'Hardware')) ?>"><?php echo $this->translate('Hardware') ?></a></li>
+                          <li><a class="active" href="<?php echo $this->url('categories', array('action' => 'categories','categorie'=>'Software')) ?>"><?php echo $this->translate('Software') ?></a></li>                                                 
+                      </ul>
                       </li>
-
-                      <li class="dropdown" id="menu2">
+                      
+                        <li class="dropdown active" id="menu1">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#menu3">
+                          Products
+                          <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                        <li class="dropdown-submenu">
+                             <a tabindex="-1" class="active" href="<?php echo $this->url('categories', array('action' => 'products','categorie' => 'AllProducts')) ?>"><?php echo $this->translate('All Products') ?></a>   
+                 
+                    <ul class="dropdown-menu">
+                      <li><a class="active" href="<?php echo $this->url('categories', array('action' => 'products','categorie' => 'CPU')) ?>"><?php echo $this->translate('CPU') ?></a></li>
+                          <li><a class="active" href="<?php echo $this->url('categories', array('action' => 'products','categorie' => 'GPU')) ?>"><?php echo $this->translate('GPU') ?></a></li> 
+                           <li><a class="active" href="<?php echo $this->url('categories', array('action' => 'products','categorie' => 'MB')) ?>"><?php echo $this->translate('Motherboard') ?></a></li>                     
+                            <li><a class="active" href="<?php echo $this->url('categories', array('action' => 'products','categorie' => 'RAM')) ?>"><?php echo $this->translate('Memmory') ?></a></li>    
+                            <li><a class="active" href="<?php echo $this->url('categories', array('action' => 'products','categorie' => 'Display')) ?>"><?php echo $this->translate('Display') ?></a></li>
+                            <li><a class="active" href="<?php echo $this->url('categories', array('action' => 'products','categorie' => 'OS')) ?>"><?php echo $this->translate('Operating Sistems') ?></a></li>
+                          
+                    </ul>
+                  </li>
+                  <li class="divider"></li>   
+                          
+                        </ul>
+                      </li>                    
+                      <li class="dropdown active" id="menu2">
                         <a class="dropdown-toggle" data-toggle="dropdown" href="#menu2">
                           Users
                           <b class="caret"></b>

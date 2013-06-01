@@ -77,14 +77,14 @@ return array(
 //                    ),
 //                ),
 //            ),
-             'manufacturer' => array(
+             'categories' => array(
                 'type'    => 'segment',
                 'options' => array(
-                    'route'    => '/[:action][/:manufacturer][/:product][/:id]',
+                    'route'    => '/[:action][/:categorie][/:product][/:id]',
                     'constraints' => array(
                     'controller' => '[a-zA-Z][a-zA-Z0-9_-]*',
                         'action' => '[a-zA-Z][a-zA-Z0-9_-]*',
-                        'manufacturer' => '[a-zA-Z][a-zA-Z0-9_-]*',
+                        'categorie' => '[a-zA-Z][a-zA-Z0-9_-]*',
                         'product' => '[a-zA-Z][a-zA-Z0-9_-]*',
                         'id'     => '[0-9]+',
                     ),

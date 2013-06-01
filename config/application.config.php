@@ -3,7 +3,9 @@ $modules = array(
     'ZfcBase',
     'ZfcUser',
     'ZeDb',
+    'ZendDeveloperTools',
     'Application',
+    
 );
 
 
