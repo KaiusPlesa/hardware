@@ -50,6 +50,7 @@ return array(
                 $adapter->injectProfilingStatementPrototype($options);
                 return $adapter;
             },
+            
         ),
     ),
 

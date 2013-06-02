@@ -13,6 +13,7 @@
         "zendexperts/ze-db": "dev-master",
         "zf-commons/zfc-user": "dev-master",
         "bjyoungblood/BjyProfiler": "dev-master"
+              
     }
 
 }

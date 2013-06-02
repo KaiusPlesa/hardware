@@ -13,6 +13,8 @@ class User implements \ZfcUser\Entity\UserInterface
      * @var string
      */
     protected $username;
+    
+    protected $registrationTime;
 
     /**
      * @var string
@@ -33,7 +35,7 @@ class User implements \ZfcUser\Entity\UserInterface
      * @var int
      */
     protected $state;
-
+    
     /**
      * @var string
      */
@@ -58,6 +60,22 @@ class User implements \ZfcUser\Entity\UserInterface
     public function setUserType($userType)
     {
         $this->userType = (string) $userType;
+        return $this;
+    }
+        public function getRegistrationTime()
+    {
+        return $this->registrationTime;
+    }
+
+    /**
+     * Set user_type.
+     *
+     * @param string $userType
+     * @return UserInterface
+     */
+    public function setRegistrationTime($registrationTime)
+    {
+        $this->registrationTime = (int) $registrationTime;
         return $this;
     }
     

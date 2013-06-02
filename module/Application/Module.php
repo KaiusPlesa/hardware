@@ -60,6 +60,17 @@ class Module{
                     'value' => $route['user_type'],
                 ),
             ));
+                $form->add(array(
+                'name' => 'registration_time',
+                'type' => 'hidden',
+                'options' => array(
+                    'label' => 'Registration Time',
+                ),
+                'attributes' => array(
+                    'type' => 'hidden',
+                    'value' => time(),
+                ),
+            ));
         
         });
 

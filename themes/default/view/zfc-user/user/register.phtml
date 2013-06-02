@@ -34,7 +34,9 @@ $form->setAttribute('class', 'form-signin');
                     <div class="control-group">
                         <div class="controls">
                         <?php if($element->getName() == 'user_type'){?>
-                         <input type="<?=(strpos($element->getName(),'password')!==false ? 'password':'text')?>" class="input-block-level" name='<?=$element->getName()?>' id='<?=$element->getName()?>' autofocus="autofocus" placeholder="<?=$element->getLabel()?>" value="<?=$element->getValue()?>" disabled="disabled">                
+                         <input type="<?=(strpos($element->getName(),'password')!==false ? 'password':'hidden')?>" class="input-block-level" name='<?=$element->getName()?>' id='<?=$element->getName()?>' autofocus="autofocus" placeholder="<?=$element->getLabel()?>" value="<?=$element->getValue()?>">
+                         <?php }else if($element->getName() == 'registration_time'){?>
+                         <input type="<?=(strpos($element->getName(),'registration_time')!==false ? 'hidden':'text')?>" class="input-block-level" name='<?=$element->getName()?>' id='<?=$element->getName()?>' autofocus="autofocus" placeholder="<?=$element->getLabel()?>" value="<?=$element->getValue()?>">                
                         <?php }else{?>
                             <input type="<?=(strpos($element->getName(),'password')!==false ? 'password':'text')?>" class="input-block-level" name='<?=$element->getName()?>' id='<?=$element->getName()?>' autofocus="autofocus" placeholder="<?=$element->getLabel()?>" value="<?=$element->getValue()?>">              
                 <?php }?>

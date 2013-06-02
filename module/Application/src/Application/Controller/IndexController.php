@@ -6,19 +6,33 @@ use Zend\Mvc\Controller\AbstractActionController;
 use Zend\View\Model\ViewModel;
 use Zend\Form\Form;
 use Zend\Form\Element;
+use Zend\Db\TableGateway\TableGateway;
+use Zend\Db\Sql\Select;
 
 class IndexController extends AbstractActionController{
     
+    protected $tableName  = 'users';
+    
     public function indexAction(){
         
-       //if(!$this->getServiceLocator()->get('zfcuserauthservice')->hasIdentity()) return $this->redirect()->toRoute('zfcuser/login');
+        if ($this->zfcUserAuthentication()->hasIdentity()) {
+        $user  = $this->zfcUserAuthentication()->getIdentity();
+        $user_id = $user->getId();       
+        
+        $data = array(
+        'user_id'  => time()
+        );
+              
+        }
+        
         $manufacturers = $this->getServiceLocator()->get("ZeDbManager")->get('Application\Model\Manufacturer');
 
        $manufacturer = $manufacturers->getAll(); 
  
        $data = array();
        $data['manufacturer'] = $manufacturer;
-       return new ViewModel();
+       return new ViewModel();    
+    
     }
      public function categoriesAction(){
         
@@ -33,27 +47,26 @@ class IndexController extends AbstractActionController{
        return new ViewModel($data);
     }
     public function productsAction(){
-
+             
         $products = $this->getServiceLocator()->get("ZeDbManager")->get('Application\Model\Products');
         $product_types = $this->getServiceLocator()->get("ZeDbManager")->get('Application\Model\ProductType');
         $categorie = $this->params()->fromRoute('categorie');
-        
+
         if($categorie === "AllProducts"){
             $product = $products->getAll();
         }else{            
             $product = $products->getAllByProduct($categorie);
         }
         $product_type = $product_types->getAll();                 
-   
+
         $data = array();
         $data['categorie'] = $product_type;
         $data['product'] = $product;
-      
+               
         //echo"<pre>";
-        //print_r($data);
+        //print_r($arrayAdapter);
         //echo"</pre>";
-         
-       return new ViewModel($data);
+        return new ViewModel($data);
     }
        
     public function productAction(){
