@@ -73,10 +73,11 @@
                       
                       <?php if($this->zfcUserIdentity()){?>                          
                             <li class="active"><a href="<?php echo $this->url('zfcuser/logout') ?>"><?php echo $this->translate('Logout') ?></a></li>
+                            <li class="active"><a href="<?php echo $this->url('zfcuser/profile') ?>"><?php echo $this->translate('Profile') ?></a></li>
                             <?php }?>
                             <?php if(!$this->zfcUserIdentity()){?>
                               <li class="active"><a href="<?php echo $this->url('zfcuser/register') ?>"><?php echo $this->translate('Sign Up') ?></a></li>
-                            <li class="active"><a href="<?php echo $this->url('zfcuser/login') ?>"><?php echo $this->translate('Sign In') ?></a>
+                            <li class="active"><a href="<?php echo $this->url('zfcuser/login') ?>"><?php echo $this->translate('Sign In') ?></a></li>
                              <?php }?>
                                      
                    

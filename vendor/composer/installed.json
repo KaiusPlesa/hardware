@@ -1,5 +1,58 @@
 [
     {
+        "name": "zendexperts/ze-db",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/ZendExperts/ZeDb.git",
+            "reference": "ba6f9698581f53af0de89c4d43d3c4b2a5e07e55"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/ZendExperts/ZeDb/zipball/ba6f9698581f53af0de89c4d43d3c4b2a5e07e55",
+            "reference": "ba6f9698581f53af0de89c4d43d3c4b2a5e07e55",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.3.3"
+        },
+        "time": "2013-03-01 16:24:55",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "1.0.x-dev"
+            }
+        },
+        "installation-source": "source",
+        "autoload": {
+            "psr-0": {
+                "ZeDb": "src/"
+            },
+            "classmap": [
+                "./"
+            ]
+        },
+        "notification-url": "http://packagist.org/downloads/",
+        "license": [
+            "New BSD"
+        ],
+        "authors": [
+            {
+                "name": "Cosmin Harangus",
+                "homepage": "http://www.zendexperts.com"
+            }
+        ],
+        "description": "A ZF2 module that allows developers to focus on the entities they work with, instead of how to retrieve or store data in the database.",
+        "homepage": "https://github.com/ZendExperts/ZeDb",
+        "keywords": [
+            "database",
+            "module",
+            "orm",
+            "zf2"
+        ]
+    },
+    {
         "name": "zendframework/zendframework",
         "version": "2.2.0",
         "version_normalized": "2.2.0.0",
@@ -114,55 +167,50 @@
         ]
     },
     {
-        "name": "zendexperts/ze-db",
+        "name": "bjyoungblood/BjyProfiler",
         "version": "dev-master",
         "version_normalized": "9999999-dev",
         "source": {
             "type": "git",
-            "url": "https://github.com/ZendExperts/ZeDb.git",
-            "reference": "ba6f9698581f53af0de89c4d43d3c4b2a5e07e55"
+            "url": "https://github.com/bjyoungblood/BjyProfiler.git",
+            "reference": "1ca31611b6960bcd744dced95764e3627e8d807a"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/ZendExperts/ZeDb/zipball/ba6f9698581f53af0de89c4d43d3c4b2a5e07e55",
-            "reference": "ba6f9698581f53af0de89c4d43d3c4b2a5e07e55",
+            "url": "https://api.github.com/repos/bjyoungblood/BjyProfiler/zipball/1ca31611b6960bcd744dced95764e3627e8d807a",
+            "reference": "1ca31611b6960bcd744dced95764e3627e8d807a",
             "shasum": ""
         },
         "require": {
-            "php": ">=5.3.3"
+            "php": ">=5.3",
+            "zendframework/zendframework": ">=2.1.0"
         },
-        "time": "2013-03-01 16:24:55",
+        "time": "2013-03-25 15:24:27",
         "type": "library",
-        "extra": {
-            "branch-alias": {
-                "dev-master": "1.0.x-dev"
-            }
-        },
         "installation-source": "source",
         "autoload": {
             "psr-0": {
-                "ZeDb": "src/"
+                "BjyProfiler": "src/"
             },
             "classmap": [
-                "./"
+                "./Module.php"
             ]
         },
         "notification-url": "http://packagist.org/downloads/",
-        "license": [
-            "New BSD"
-        ],
         "authors": [
             {
-                "name": "Cosmin Harangus",
-                "homepage": "http://www.zendexperts.com"
+                "name": "Ben Youngblood",
+                "email": "bx.youngblood@gmail.com",
+                "homepage": "http://bjyoungblood.com/",
+                "role": "Developer"
             }
         ],
-        "description": "A ZF2 module that allows developers to focus on the entities they work with, instead of how to retrieve or store data in the database.",
-        "homepage": "https://github.com/ZendExperts/ZeDb",
+        "description": "Database profiler for Zend\\Db (also plugin for ZendDeveloperTools)",
+        "homepage": "https://github.com/bjyoungblood/BjyProfiler",
         "keywords": [
-            "database",
-            "module",
-            "orm",
+            "db",
+            "profiler",
+            "zdt",
             "zf2"
         ]
     },
@@ -223,17 +271,17 @@
     },
     {
         "name": "zf-commons/zfc-user",
-        "version": "dev-master",
-        "version_normalized": "9999999-dev",
+        "version": "0.1.2",
+        "version_normalized": "0.1.2.0",
         "source": {
             "type": "git",
             "url": "https://github.com/ZF-Commons/ZfcUser.git",
-            "reference": "bc9259890cc2695baf9818b5c363578769079240"
+            "reference": "0.1.2"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/ZF-Commons/ZfcUser/zipball/bc9259890cc2695baf9818b5c363578769079240",
-            "reference": "bc9259890cc2695baf9818b5c363578769079240",
+            "url": "https://api.github.com/repos/ZF-Commons/ZfcUser/zipball/0.1.2",
+            "reference": "0.1.2",
             "shasum": ""
         },
         "require": {
@@ -254,9 +302,9 @@
         "suggest": {
             "zendframework/zend-session": "To use the default authentication adapter."
         },
-        "time": "2013-05-23 20:53:04",
+        "time": "2013-05-02 12:33:31",
         "type": "library",
-        "installation-source": "source",
+        "installation-source": "dist",
         "autoload": {
             "psr-0": {
                 "ZfcUser": "src/"
@@ -285,51 +333,53 @@
         ]
     },
     {
-        "name": "bjyoungblood/BjyProfiler",
+        "name": "cdli/user-profile",
         "version": "dev-master",
         "version_normalized": "9999999-dev",
         "source": {
             "type": "git",
-            "url": "https://github.com/bjyoungblood/BjyProfiler.git",
-            "reference": "1ca31611b6960bcd744dced95764e3627e8d807a"
+            "url": "https://github.com/cdli/CdliUserProfile.git",
+            "reference": "86d0e328e69f3335eabf80a421c6b4d925a12bdd"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/bjyoungblood/BjyProfiler/zipball/1ca31611b6960bcd744dced95764e3627e8d807a",
-            "reference": "1ca31611b6960bcd744dced95764e3627e8d807a",
+            "url": "https://api.github.com/repos/cdli/CdliUserProfile/zipball/86d0e328e69f3335eabf80a421c6b4d925a12bdd",
+            "reference": "86d0e328e69f3335eabf80a421c6b4d925a12bdd",
             "shasum": ""
         },
         "require": {
-            "php": ">=5.3",
-            "zendframework/zendframework": ">=2.1.0"
+            "zendframework/zendframework": "2.*",
+            "zf-commons/zfc-user": "0.*"
         },
-        "time": "2013-03-25 15:24:27",
+        "time": "2013-02-12 12:15:50",
         "type": "library",
         "installation-source": "source",
         "autoload": {
             "psr-0": {
-                "BjyProfiler": "src/"
+                "CdliUserProfile": "src/"
             },
             "classmap": [
-                "./Module.php"
+                "./"
             ]
         },
         "notification-url": "http://packagist.org/downloads/",
+        "license": [
+            "BSD-3-Clause"
+        ],
         "authors": [
             {
-                "name": "Ben Youngblood",
-                "email": "bx.youngblood@gmail.com",
-                "homepage": "http://bjyoungblood.com/",
-                "role": "Developer"
+                "name": "Adam Lundrigan",
+                "email": "adamlundrigan@cdli.ca",
+                "homepage": "http://www.cdli.ca/"
             }
         ],
-        "description": "Database profiler for Zend\\Db (also plugin for ZendDeveloperTools)",
-        "homepage": "https://github.com/bjyoungblood/BjyProfiler",
+        "description": "Extensible user profile system for ZfcUser",
+        "homepage": "https://github.com/cdli/CdliUserProfile",
         "keywords": [
-            "db",
-            "profiler",
-            "zdt",
-            "zf2"
+            "profile",
+            "user",
+            "zf2",
+            "zfcuser"
         ]
     }
 ]

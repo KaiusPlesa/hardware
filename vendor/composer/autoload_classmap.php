@@ -7,6 +7,18 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'BjyProfiler\\Module' => $vendorDir . '/bjyoungblood/BjyProfiler/Module.php',
+    'CdliUserProfile\\Controller\\ProfileController' => $vendorDir . '/cdli/user-profile/src/CdliUserProfile/Controller/ProfileController.php',
+    'CdliUserProfile\\Form\\Section\\ZfcUser' => $vendorDir . '/cdli/user-profile/src/CdliUserProfile/Form/Section/ZfcUser.php',
+    'CdliUserProfile\\Form\\Section\\ZfcUserFilter' => $vendorDir . '/cdli/user-profile/src/CdliUserProfile/Form/Section/ZfcUserFilter.php',
+    'CdliUserProfile\\Integration\\AbstractIntegration' => $vendorDir . '/cdli/user-profile/src/CdliUserProfile/Integration/AbstractIntegration.php',
+    'CdliUserProfile\\Integration\\IntegrationInterface' => $vendorDir . '/cdli/user-profile/src/CdliUserProfile/Integration/IntegrationInterface.php',
+    'CdliUserProfile\\Integration\\ZfcUser' => $vendorDir . '/cdli/user-profile/src/CdliUserProfile/Integration/ZfcUser.php',
+    'CdliUserProfile\\Model\\ProfileSection' => $vendorDir . '/cdli/user-profile/src/CdliUserProfile/Model/ProfileSection.php',
+    'CdliUserProfile\\Model\\ProfileSectionInterface' => $vendorDir . '/cdli/user-profile/src/CdliUserProfile/Model/ProfileSectionInterface.php',
+    'CdliUserProfile\\Module' => $vendorDir . '/cdli/user-profile/Module.php',
+    'CdliUserProfile\\Options\\ModuleOptions' => $vendorDir . '/cdli/user-profile/src/CdliUserProfile/Options/ModuleOptions.php',
+    'CdliUserProfile\\Service\\Profile' => $vendorDir . '/cdli/user-profile/src/CdliUserProfile/Service/Profile.php',
+    'CdliUserProfile\\Validator\\NoRecordExistsExceptIgnored' => $vendorDir . '/cdli/user-profile/src/CdliUserProfile/Validator/NoRecordExistsExceptIgnored.php',
     'ZeDb\\DatabaseManager' => $vendorDir . '/zendexperts/ze-db/src/ZeDb/DatabaseManager.php',
     'ZeDb\\Entity' => $vendorDir . '/zendexperts/ze-db/src/ZeDb/Entity.php',
     'ZeDb\\EntityInterface' => $vendorDir . '/zendexperts/ze-db/src/ZeDb/EntityInterface.php',

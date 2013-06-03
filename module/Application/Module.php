@@ -44,7 +44,7 @@ class Module{
         
         $events = $eventManager->getSharedManager();
         
-        $events->attach('ZfcUser\Form\Register','init', function($e) use ($application) {
+            $events->attach('ZfcUser\Form\Register','init', function($e) use ($application) {
             $form = $e->getTarget();
             $route = $application->getMvcEvent()->getRouteMatch()->getParams(); 
             // Do what you please with the form instance ($form)

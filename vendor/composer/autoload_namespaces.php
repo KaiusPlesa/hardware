@@ -11,5 +11,6 @@ return array(
     'Zend\\' => array($vendorDir . '/zendframework/zendframework/library'),
     'ZendTest\\' => array($vendorDir . '/zendframework/zendframework/tests'),
     'ZeDb' => array($vendorDir . '/zendexperts/ze-db/src'),
+    'CdliUserProfile' => array($vendorDir . '/cdli/user-profile/src'),
     'BjyProfiler' => array($vendorDir . '/bjyoungblood/BjyProfiler/src'),
 );

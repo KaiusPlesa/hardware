@@ -11,6 +11,8 @@ use Zend\Db\Sql\Select;
 
 class IndexController extends AbstractActionController{
     
+    protected $profileService;
+    protected $moduleOptions;
     protected $tableName  = 'users';
     
     public function indexAction(){
@@ -95,7 +97,59 @@ class IndexController extends AbstractActionController{
        return new ViewModel($data);
          
     }
-    
+    public function profileAction()
+    {
+        $messages = array();
+        $service = $this->getProfileService();
+        $service->setUser($this->getServiceLocator()->get('zfcuser_auth_service')->getIdentity());       
+        if(!$this->getServiceLocator()->get('zfcuserauthservice')->hasIdentity()) return $this->redirect()->toRoute('zfcuser/login');  
+        $sections = $service->getSections();
+
+        if ($this->getRequest()->isPost()) 
+        {
+            $data = $this->getRequest()->getPost()->toArray();
+            if ( $service->save($data) ) 
+            {
+                $messages[] = array(
+                    'type'    => 'success',
+                    'icon'    => 'icon-ok-sign',
+                    'message' => 'Your profile has been updated successfully!',
+                );
+            }
+            else
+            {
+                $messages[] = array(
+                    'type'    => 'error',
+                    'icon'    => 'icon-remove-sign',
+                    'message' => 'Profile update failed!  See error messages below for more details.',
+                );
+            }
+        }
+
+        return new ViewModel(array(
+            'messages'  => $messages,
+            'user'      => $service->getUser(),
+            'sections'  => $sections,
+            'options'   => $this->getModuleOptions()
+        ));
+    }
+
+    protected function getProfileService()
+    {
+        if ($this->profileService === null) {
+            $this->profileService = $this->getServiceLocator()->get('CdliUserProfile\Service\Profile');
+        }
+        return $this->profileService;
+    }
+
+    protected function getModuleOptions()
+    {
+        if ($this->moduleOptions === null) {
+            $this->moduleOptions = $this->getServiceLocator()->get('cdliuserprofile_module_options');
+        }
+        return $this->moduleOptions;
+    }
+    /*
     public function globalsettingsAction(){
         
         if(!$this->getServiceLocator()->get('zfcuserauthservice')->hasIdentity()) return $this->redirect()->toRoute('zfcuser/login');
@@ -116,7 +170,7 @@ class IndexController extends AbstractActionController{
         $formArray["id"] = "globalSettingsForm"; 
         $formArray["fields"] = array();
         
-        /* refund_limit site_name site_url currency revenue_share*/
+        // refund_limit site_name site_url currency revenue_share
         
         if($configValues){
             if(count($configValues)>0){
@@ -231,4 +285,5 @@ class IndexController extends AbstractActionController{
         return new ViewModel($data);
         
     }
+    */
 }

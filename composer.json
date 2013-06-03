@@ -10,9 +10,9 @@
     "require": {
         "php": ">=5.3.3",
         "zendframework/zendframework": ">2.2.0rc1",
-        "zendexperts/ze-db": "dev-master",
-        "zf-commons/zfc-user": "dev-master",
-        "bjyoungblood/BjyProfiler": "dev-master"
+        "zendexperts/ze-db": "dev-master",       
+        "bjyoungblood/BjyProfiler": "dev-master",
+        "cdli/user-profile": "dev-master"
               
     }
 

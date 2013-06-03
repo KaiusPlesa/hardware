@@ -5,6 +5,7 @@ $modules = array(
     'ZeDb',
     'ZendDeveloperTools',
     'BjyProfiler',
+    'CdliUserProfile',
     'Application',
     
 );

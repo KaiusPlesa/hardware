@@ -71,7 +71,7 @@ $settings = array(
      * Default value: array containing 'email'
      * Accepted values: array containing one or more of: email, username
      */
-    //'auth_identity_fields' => array( 'email' ),
+    'auth_identity_fields' => array( 'email','username' ),
 
     /**
      * Login form timeout
@@ -109,7 +109,7 @@ $settings = array(
      * Determines if a captcha should be utilized on the user registration form.
      * Default value is false.
      */
-    'use_registration_form_captcha' => true,
+    'use_registration_form_captcha' => false,
 
     /**
      * Form Captcha Options
