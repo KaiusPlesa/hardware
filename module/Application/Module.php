@@ -32,7 +32,6 @@ class Module{
         }
         unset($configGlobal);
         unset($configsTable);
-        //p($configArray);
         
         //@todo - inject in all controllers !
         

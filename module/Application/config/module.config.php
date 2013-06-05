@@ -22,70 +22,17 @@ return array(
             // The following is a route to simplify getting started creating
             // new controllers and actions without needing to create a new
             // module. Simply drop new controllers in, and you can access them
-            // using the path /application/:controller/:action
-            'application' => array(
-                'type'    => 'Literal',
-                'options' => array(
-                    'route'    => '/application',
-                    'defaults' => array(
-                        '__NAMESPACE__' => 'Application\Controller',
-                        'controller'    => 'Index',
-                        'action'        => 'manufacturer',
-                    ),
-                ),
-                'may_terminate' => true,
-                'child_routes' => array(
-                    'default' => array(
-                        'type'    => 'Segment',
-                        'options' => array(
-                            'route'    => '/[:controller[/:action]]',
-                            'constraints' => array(
-                                'controller' => '[a-zA-Z][a-zA-Z0-9_-]*',
-                                'action'     => '[a-zA-Z][a-zA-Z0-9_-]*',
-                                
-                            ),
-                            'defaults' => array(
-                            ),
-                        ),
-                    ),
-                ),
-            ),
-         //     'manufacturer' => array(
-//                'type'    => 'Literal',
-//                'options' => array(
-//                    'route'    => '/manufacturer',
-//                    'defaults' => array(
-//                        '__NAMESPACE__' => 'Application\Controller',
-//                        'controller'    => 'Index',
-//                        'action'        => 'manufacturer',
-//                    ),
-//                ),
-//                'may_terminate' => true,
-//                'child_routes' => array(
-//                    'default' => array(
-//                        'type'    => 'Segment',
-//                        'options' => array(
-//                            'route'    => '/[:controller[/:action]]',
-//                            'constraints' => array(
-//                                'controller' => '[a-zA-Z][a-zA-Z0-9_-]*',
-//                                'action'     => '[a-zA-Z][a-zA-Z0-9_-]*',
-//                                'id'         => '[0-9]+',
-//                            ),
-//                            'defaults' => array(
-//                            ),
-//                        ),
-//                    ),
-//                ),
-//            ),
-             'categories' => array(
+            // using the path /application/:controller/:action           
+            'index' => array(
                 'type'    => 'segment',
                 'options' => array(
-                    'route'    => '/[:action][/:categorie][/:product][/:id]',
+                    'route'    => '/[:action][/:categorie][/:product][/:name][/:id]',
                     'constraints' => array(
                     'controller' => '[a-zA-Z][a-zA-Z0-9_-]*',
                         'action' => '[a-zA-Z][a-zA-Z0-9_-]*',
                         'categorie' => '[a-zA-Z][a-zA-Z0-9_-]*',
                         'product' => '[a-zA-Z][a-zA-Z0-9_-]*',
+                        //'name' => '[a-z][a-z0-9_]*',
                         'id'     => '[0-9]+',
                     ),
                     'defaults' => array(

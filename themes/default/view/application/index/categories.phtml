@@ -1,12 +1,29 @@
+ <div class="productleftSidebar hero-unit">
+    <div class="sidebarProductTitle">Related Products</div>
+ <?php if($this->sb_product>0){
+        foreach($this->sb_product as $row){?>
+     <div class="img-polaroid sidebarProduct">
+        <div class="sidebarProductName">                
+            <?=$row['name']?>                
+        </div> 
+        <div class="sidebarProductContent"> 
+            <?= substr($row['description'], 0, 90)."..."?><a href="<?=$this->url('index', array('action' => 'product','product' => $row['product'], 'name' => $row['name'], 'id' => $row['id']));?>">read more</a>  
+        </div>
+     </div>                         
+        <?php } }?>
+   
+</div> 
+<div class="productsContainer hero-unit">  
 <?php 
 if($this->categ>0){
  foreach($this->categ as $row){?>      
 <div class="manufacturer">
     
-     <a href="<?=$this->url('categories', array('action' => 'products','categorie' => $row['type']));?>"><img src="../img/product_type/<?=$row['img']?>" class="manufacturerImg"></a>
-        <?php /*
-        <h1><a href="<?=$this->url('manufacturer', array('action' => 'products','manufacturer' => $row['manufacturer_name'], 'id' => $row['manufacturer_id']));?>"><?=$row['manufacturer_name']?></a></h1> 
-    */?>
+     <a href="<?=$this->url('index', array('action' => 'products','categorie' => $row['type']));?>"><img src="<?=SERVER_URL?>/img/product_type/<?=$row['img']?>" class="img-polaroid manufacturerImg" width="190px" height="130px"></a>
+ 
+        <a href="<?=$this->url('index', array('action' => 'products', 'categorie' => $row['type']));?>"><?=$row['type']?></a>
+    
 </div>
  <?php }}?>
+</div>
  

@@ -17,16 +17,6 @@ class IndexController extends AbstractActionController{
     
     public function indexAction(){
         
-        if ($this->zfcUserAuthentication()->hasIdentity()) {
-        $user  = $this->zfcUserAuthentication()->getIdentity();
-        $user_id = $user->getId();       
-        
-        $data = array(
-        'user_id'  => time()
-        );
-              
-        }
-        
         $manufacturers = $this->getServiceLocator()->get("ZeDbManager")->get('Application\Model\Manufacturer');
 
        $manufacturer = $manufacturers->getAll(); 
@@ -39,13 +29,26 @@ class IndexController extends AbstractActionController{
      public function categoriesAction(){
         
         $categorie = $this->params()->fromRoute('categorie');
-
+        
+        $products = $this->getServiceLocator()->get("ZeDbManager")->get('Application\Model\Products');
+        
         $product_type = $this->getServiceLocator()->get("ZeDbManager")->get('Application\Model\ProductType');
 
        $categ = $product_type->getAllByCategorie($categorie); 
+              
+       $types = array("CPU"=>"CPU",
+                        "GPU"=>"GPU",
+                        "RAM"=>"RAM",
+                        "Display"=>"Display",
+                        "OS"=>"OS"                               
+                        );
+                        
+       $type = array_rand($types, 1);              
+       $product_sb = $products->getAllByProductLimit2($type);
        
        $data = array();
        $data['categ'] = $categ;
+       $data['sb_product'] = $product_sb;
        return new ViewModel($data);
     }
     public function productsAction(){
@@ -56,47 +59,41 @@ class IndexController extends AbstractActionController{
 
         if($categorie === "AllProducts"){
             $product = $products->getAll();
+            $categories = array("CPU"=>"CPU",
+                                "GPU"=>"GPU",
+                                "RAM"=>"RAM",
+                                "Display"=>"Display",
+                                "OS"=>"OS"                               
+                                );
+            $categorie = array_rand($categories, 1);;
         }else{            
             $product = $products->getAllByProduct($categorie);
         }
         $product_type = $product_types->getAll();                 
-
+        $product_sb = $products->getAllByProductLimit2($categorie);
+        
         $data = array();
         $data['categorie'] = $product_type;
         $data['product'] = $product;
-               
-        //echo"<pre>";
-        //print_r($arrayAdapter);
-        //echo"</pre>";
+        $data['sb_product'] = $product_sb;
+
         return new ViewModel($data);
     }
-       
+    // OK    
     public function productAction(){
-                            
-        //if(!$this->getServiceLocator()->get('zfcuserauthservice')->hasIdentity()) return $this->redirect()->toRoute('zfcuser/login');
-
-        $idBlog = $this->params()->fromRoute('id');
-        $product_description = $this->getServiceLocator()->get("ZeDbManager")->get('Application\Model\ProductDescription');
+                                   
+        $id = $this->params()->fromRoute('id');
+        $table = $this->params()->fromRoute('categorie');
+        $product_details = $this->getServiceLocator()->get("ZeDbManager")->get('Application\Model\Products');
+        $product_type = $product_details->getProductDetails($id, $table);
+        $product = $product_details->getAllByProduct($table);
         
+        $data['product_details'] = $product_type;
+        $data['product'] = $product;
         
-        //$product_details->getByManufacturerIdAndProductID(1,1);
-               
-       $results = $product_description->getAllByManufacturerID($idBlog);
-       //$products = $product->getAll(); 
-       //$product_detail = $product_details->getAll();       
-       $data = array();
-       $data['result'] = $results;
-       //$data['products'] = $products;
-       //$data['products_detail'] = $product_detail;
-//       
-//       echo"<pre>";
-//       print_r($data);
-//       echo"</pre>";
-        
-  
-       return new ViewModel($data);
-         
+        return new ViewModel($data);        
     }
+    
     public function profileAction()
     {
         $messages = array();

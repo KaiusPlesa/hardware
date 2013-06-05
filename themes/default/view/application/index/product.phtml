@@ -1,3 +1,33 @@
-<?php
+ <div class="productleftSidebar hero-unit">
+    <div class="sidebarProductTitle">Related Products</div>
+ <?php if($this->product>0){
+        foreach($this->product as $row){?>
+     <div class="img-polaroid sidebarProduct">
+        <div class="sidebarProductName">                
+            <?=$row['name']?>                
+        </div> 
+        <div class="sidebarProductContent"> 
+            <?= substr($row['description'], 0, 90)."..."?><a href="<?=$this->url('index', array('action' => 'product','product' => $row['product'], 'name' => $row['name'], 'id' => $row['id']));?>">read more</a>  
+        </div>
+     </div>                         
+        <?php } }?>
+   
+</div> 
+<div class="productContainer hero-unit">          
+  <?php  if($this->product_details>0){
+        foreach($this->product_details as $row){?>   
+
+    <div class="productTitle">
+        <?=$row['name']?>
+    </div>  
+  <p><img src="<?=SERVER_URL?>/img/product_type/<?=$row['img']?>" class="productDetailsImg img-polaroid" width="20%"></p>
+  <p class="muted mutedFixProduct"><?=$row['description']?></p>
+  <p class="muted"><?=$row['brand']?></p>
+  <p class="muted"><?=$row['product']?></p>
+  <p class="muted"><?=$row['manufacturer']?></p>
+  <p class="muted"><?=$row['fsb']?></p>
+  <p class="muted"><?=$row['multiplier']?></p>
   
-?>
+       
+<?php } }?>
+</div> 

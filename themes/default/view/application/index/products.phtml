@@ -1,18 +1,29 @@
-<?php
-           
-
+ <div class="productleftSidebar hero-unit">
+    <div class="sidebarProductTitle">Related Products</div>
+ <?php if($this->sb_product>0){
+        foreach($this->sb_product as $row){?>
+     <div class="img-polaroid sidebarProduct">
+        <div class="sidebarProductName">                
+            <?=$row['name']?>                
+        </div> 
+        <div class="sidebarProductContent"> 
+            <?= substr($row['description'], 0, 90)."..."?><a href="<?=$this->url('index', array('action' => 'product','product' => $row['product'], 'name' => $row['name'], 'id' => $row['id']));?>">read more</a>  
+        </div>
+     </div>                         
+        <?php } }?>
+   
+</div> 
+<div class="productsContainer hero-unit">  
+<?php          
     if($this->product>0){
         foreach($this->product as $row){?>
 <div class="product">
 <div class="productName">                
-                 <a href="<?=$this->url('categories', array('action' => 'product', 'product' => $row['product_name'],'id' => $row['product_id']));?>"><?=$row['name']?></a>                
+                 <?=$row['name']?>                
                  </div> 
               <div class="productContent"> 
-                  <?= substr($row['description'], 0, 120)."..."?><a href="<?=$this->url('categories', array('action' => 'product', 'product' => $row['product_name'],'id' => $row['product_id']));?>">read more</a>  
+                  <?= substr($row['description'], 0, 110)."..."?><a href="<?=$this->url('index', array('action' => 'product','product' => $row['product'], 'name' => $row['name'], 'id' => $row['id']));?>">read more</a>  
                  </div>                
             </div>
-        <?php
-        } ?>
-  
-<?php }?>
- 
+            <?php } }?>  
+</div> 

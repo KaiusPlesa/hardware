@@ -161,6 +161,18 @@ hr{
 #carbonForm h1{
     /* The form heading */
     font-family:Century Gothic,Myriad Pro,Arial,Helvetica,sans-serif;
+    font-size:20px;
+    font-weight:normal;
+    padding:0 0 0 10px;
+    text-align:left;
+    -webkit-text-shadow: 0 0 8px lightblue;
+    text-shadow: 0 0 8px lightblue; 
+    text-align: center;
+}
+/*
+#carbonForm h1{
+    
+    font-family:Century Gothic,Myriad Pro,Arial,Helvetica,sans-serif;
     font-size:60px;
     font-weight:normal;
     padding:0 0 30px 10px;
@@ -169,6 +181,7 @@ hr{
     text-shadow: 0 0 8px lightblue; 
     text-align: center;
 }
+*/
 #carbonForm input{
     margin: 0 auto;
     float:right;
@@ -386,7 +399,6 @@ h1{
     text-align: center;
 }
 .hero-unit{
-    background-color: rgb(34, 188, 226);
     color: rgb(0, 0, 0);
     font-size: 12px;
     text-shadow: 1px 1px 2px #ccc;
@@ -449,16 +461,18 @@ dd{
     height:40px;
 }
 .manufacturer{
-    background-color: #ffffff;
-    border: 1px solid rgb(255, 255, 255);
-    margin-top: 10px;
-    padding: 0px;
-    width: 227px;
-    height: 128px;
-    float: left;
-    margin-left: 10px;
-    color: #000;
-    box-shadow: 1px 1px 5px rgb(0, 0, 0);
+background-color: #ffffff;
+border: 1px solid rgb(255, 255, 255);
+margin-top: 10px;
+padding: 0px;
+width: 200px;
+height: 138px;
+float: left;
+margin-left: 10px;
+color: #000;
+box-shadow: 1px 1px 6px rgb(226, 226, 226);
+border: solid 1px rgb(219, 219, 219);
+}
 }
 
 .manufacturer h1{
@@ -519,12 +533,13 @@ dd{
     border: 1px solid rgb(255, 255, 255);
     margin-top: 10px;
     padding: 0px;
-    width: 227px;
-    height: 128px;
+    width: 200px;
+    height: 138px;
     float: left;
     margin-left: 10px;
     color: #000;
-    box-shadow: 1px 1px 5px rgb(0, 0, 0);
+    box-shadow: 1px 1px 6px rgb(226, 226, 226);
+    border: solid 1px rgb(219, 219, 219);
 }
 
 .product h1{
@@ -554,6 +569,8 @@ dd{
     margin-top: 26px;
     padding-left: 10px;
     padding-right: 10px;
+    word-spacing: -1px;
+    line-height: 20px;
      
 }
 .productName{
@@ -578,11 +595,117 @@ dd{
     box-shadow: 1px 1px 5px rgb(0, 0, 0);    
 }
 #carbonForm h2 {
-font-family: Century Gothic,Myriad Pro,Arial,Helvetica,sans-serif;
-font-size: 20px;
-font-weight: normal;
-padding: 0 0 0 10px;
-text-align: left;
--webkit-text-shadow: 0 0 8px lightblue;
-text-shadow: 0 0 8px lightblue;
-text-align: center;
+    font-family: Century Gothic,Myriad Pro,Arial,Helvetica,sans-serif;
+    font-size: 20px;
+    font-weight: normal;
+    padding: 0 0 0 10px;
+    text-align: left;
+    -webkit-text-shadow: 0 0 8px lightblue;
+    text-shadow: 0 0 8px lightblue;
+    text-align: center;
+}
+.productTitle{
+    border-bottom: solid 1px #ccc;
+    box-shadow: 0px 1px #fff;
+    margin-bottom: 10px;
+    height: 30px;
+    margin-left: -20px;
+    margin-right: -20px;
+    text-align: center;
+    font-size: 200%;
+    color: rgb(0, 0, 0);
+}
+.productDetailsImg{
+    float:left;
+    margin-right:30px;
+    margin-top:10px;
+    margin-right: 10px;
+}
+.leftSidebar{
+    width: 200px;
+    height: 700px;
+    float:left;
+    color:#000;
+    border:solid 1px #000;
+}
+.productleftSidebar{
+    width: 200px;
+    padding: 20px;
+    float: left;
+    box-shadow: 1px 1px 10px #ccc;
+    border: solid 1px rgb(255, 255, 255);
+    background-color: rgb(120, 170, 204);
+}
+.productContainer{
+    margin-left: 260px;
+    word-spacing: -1px;
+    line-height: 20px;
+    text-align: justify;
+    box-shadow: 1px 1px 10px #ccc;
+    border: solid 1px rgb(228, 225, 225);
+    background-color: rgb(255, 255, 255);
+    padding: 20px;
+    height: 800px;
+}
+.productsContainer{
+    margin-left: 260px;
+    word-spacing: -1px;
+    line-height: 20px;
+    text-align: justify;
+    box-shadow: 1px 1px 10px #ccc;
+    border: solid 1px rgb(228, 225, 225);
+    background-color: rgb(255, 255, 255);
+    padding: 20px;
+    height: 800px;
+}
+.sidebarProductName{
+    border-bottom: solid 1px #ccc;
+    box-shadow: 0px 1px #fff;
+    margin-bottom: 10px;
+    height: 30px;
+    text-align: left;
+    font-size: 120%;
+    color: rgb(0, 0, 0);
+    padding-left: 5px;
+}
+.sidebarProductContent{
+    margin-bottom: 10px;
+    text-align: justify;
+    font-size: 100%;
+    color: rgb(0, 0, 0);
+    padding-left: 5px;
+    padding-right: 5px;
+    word-spacing: -1px;
+    line-height: 20px;
+}
+.sidebarProductTitle{
+    border-bottom: solid 1px rgb(86, 126, 170);
+    box-shadow: 0px 1px rgb(159, 212, 253);
+    margin-bottom: 10px;
+    height: 30px;
+    margin-left: -20px;
+    margin-right: -20px;
+    text-align: center;
+    font-size: 200%;
+    color: rgb(0, 0, 0);
+}
+.sidebarProduct{
+    background-color: #e8e8e8;
+    font-size: 100%;
+    margin-bottom: 20px;
+    margin-top: 25px;
+    border: solid 5px #fff;
+}
+.mutedFixProduct{
+    padding: 3px;
+    font-size: 120%;
+}
+.footer{
+    color: rgb(255, 255, 255);
+    background: #0e0e0e;
+    height: 200px;
+    text-align: center;
+    padding-top: 30px;
+    border-top: solid 1px rgb(252, 247, 244);
+    box-shadow: 1px 0px 5px rgb(105, 105, 105);
+}

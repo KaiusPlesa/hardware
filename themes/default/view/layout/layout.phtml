@@ -42,8 +42,8 @@
                         </a>
                         <ul class="dropdown-menu">
                         
-                          <li><a class="active" href="<?php echo $this->url('categories', array('action' => 'categories','categorie'=>'Hardware')) ?>"><?php echo $this->translate('Hardware') ?></a></li>
-                          <li><a class="active" href="<?php echo $this->url('categories', array('action' => 'categories','categorie'=>'Software')) ?>"><?php echo $this->translate('Software') ?></a></li>                                                 
+                          <li><a class="active" href="<?php echo $this->url('index', array('action' => 'categories','categorie'=>'Hardware')) ?>"><?php echo $this->translate('Hardware') ?></a></li>
+                          <li><a class="active" href="<?php echo $this->url('index', array('action' => 'categories','categorie'=>'Software')) ?>"><?php echo $this->translate('Software') ?></a></li>                                                 
                       </ul>
                       </li>
                       
@@ -54,19 +54,19 @@
                         </a>
                         <ul class="dropdown-menu">
                         <li class="dropdown-submenu">
-                             <a tabindex="-1" class="active" href="<?php echo $this->url('categories', array('action' => 'products','categorie' => 'AllProducts')) ?>"><?php echo $this->translate('All Products') ?></a>   
+                             <a tabindex="-1" class="active" href="<?php echo $this->url('index', array('action' => 'products','categorie' => 'AllProducts')) ?>"><?php echo $this->translate('All Products') ?></a>   
                  
                     <ul class="dropdown-menu">
-                      <li><a class="active" href="<?php echo $this->url('categories', array('action' => 'products','categorie' => 'CPU')) ?>"><?php echo $this->translate('CPU') ?></a></li>
-                          <li><a class="active" href="<?php echo $this->url('categories', array('action' => 'products','categorie' => 'GPU')) ?>"><?php echo $this->translate('GPU') ?></a></li> 
-                           <li><a class="active" href="<?php echo $this->url('categories', array('action' => 'products','categorie' => 'MB')) ?>"><?php echo $this->translate('Motherboard') ?></a></li>                     
-                            <li><a class="active" href="<?php echo $this->url('categories', array('action' => 'products','categorie' => 'RAM')) ?>"><?php echo $this->translate('Memmory') ?></a></li>    
-                            <li><a class="active" href="<?php echo $this->url('categories', array('action' => 'products','categorie' => 'Display')) ?>"><?php echo $this->translate('Display') ?></a></li>
-                            <li><a class="active" href="<?php echo $this->url('categories', array('action' => 'products','categorie' => 'OS')) ?>"><?php echo $this->translate('Operating Sistems') ?></a></li>
+                      <li><a class="active" href="<?php echo $this->url('index', array('action' => 'products','categorie' => 'CPU')) ?>"><?php echo $this->translate('CPU') ?></a></li>
+                          <li><a class="active" href="<?php echo $this->url('index', array('action' => 'products','categorie' => 'GPU')) ?>"><?php echo $this->translate('GPU') ?></a></li> 
+                           <li><a class="active" href="<?php echo $this->url('index', array('action' => 'products','categorie' => 'MB')) ?>"><?php echo $this->translate('Motherboard') ?></a></li>                     
+                            <li><a class="active" href="<?php echo $this->url('index', array('action' => 'products','categorie' => 'RAM')) ?>"><?php echo $this->translate('Memmory') ?></a></li>    
+                            <li><a class="active" href="<?php echo $this->url('index', array('action' => 'products','categorie' => 'Display')) ?>"><?php echo $this->translate('Display') ?></a></li>
+                            <li><a class="active" href="<?php echo $this->url('index', array('action' => 'products','categorie' => 'OS')) ?>"><?php echo $this->translate('Operating Sistems') ?></a></li>
                           
                     </ul>
                   </li>
-                  <li class="divider"></li>   
+                  
                           
                         </ul>
                       </li> 
@@ -92,7 +92,7 @@
             
         </div>
         <div class="clearFix"></div> <!-- /container -->
-        <footer>
+        <footer class="footer">
                 <p>&copy; 2005 - <?php echo date('Y') ?> by Zend Technologies Ltd. <?php echo $this->translate('All rights reserved.') ?></p>
             </footer>
         <?php echo $this->inlineScript() ?>
