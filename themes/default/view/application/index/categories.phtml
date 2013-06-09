@@ -19,10 +19,11 @@ if($this->categ>0){
  foreach($this->categ as $row){?>      
 <div class="manufacturer">
     
-     <a href="<?=$this->url('index', array('action' => 'products','categorie' => $row['type']));?>"><img src="<?=SERVER_URL?>/img/product_type/<?=$row['img']?>" class="img-polaroid manufacturerImg" width="190px" height="130px"></a>
- 
-        <a href="<?=$this->url('index', array('action' => 'products', 'categorie' => $row['type']));?>"><?=$row['type']?></a>
-    
+     <a href="<?=$this->url('index', array('action' => 'products','categorie' => $row['type']));?>"><img src="<?=SERVER_URL?>/img/product_type/<?=$row['img']?>" width="200px" height="200px"></a>
+        <div class="categURL">
+        
+        </div>
+        <a class="categURLa" href="<?=$this->url('index', array('action' => 'products', 'categorie' => $row['type']));?>"><?=$row['full_name']?>'s</a>
 </div>
  <?php }}?>
 </div>

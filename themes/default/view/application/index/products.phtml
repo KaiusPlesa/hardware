@@ -17,13 +17,18 @@
 <?php          
     if($this->product>0){
         foreach($this->product as $row){?>
-<div class="product">
+<div class="manufacturer">
 <div class="productName">                
                  <?=$row['name']?>                
                  </div> 
               <div class="productContent"> 
-                  <?= substr($row['description'], 0, 110)."..."?><a href="<?=$this->url('index', array('action' => 'product','product' => $row['product'], 'name' => $row['name'], 'id' => $row['id']));?>">read more</a>  
-                 </div>                
+                  <?= substr($row['description'], 0, 200)."..."?>               
+                 </div>  
+                 <div class="productContentURL">   
+              <a href="<?=$this->url('index', array('action' => 'product','product' => $row['product'], 'name' => $row['name'], 'id' => $row['id']));?>">read more</a> 
+              </div> 
+                           
             </div>
+
             <?php } }?>  
 </div> 

@@ -19,15 +19,88 @@
 
     <div class="productTitle">
         <?=$row['name']?>
-    </div>  
-  <p><img src="<?=SERVER_URL?>/img/product_type/<?=$row['img']?>" class="productDetailsImg img-polaroid" width="20%"></p>
-  <p class="muted mutedFixProduct"><?=$row['description']?></p>
-  <p class="muted"><?=$row['brand']?></p>
-  <p class="muted"><?=$row['product']?></p>
-  <p class="muted"><?=$row['manufacturer']?></p>
-  <p class="muted"><?=$row['fsb']?></p>
-  <p class="muted"><?=$row['multiplier']?></p>
+    </div> 
+  <div class="HeaderContent"> 
+  <p><img src="<?=imageCheck($row['img'])?>" class="productDetailsImg img-polaroid" width="200px"></p>
+  <p class="mutedFixProduct"><?=$row['description']?></p>
+  </div>
+  <div class="tableHeaderGeneral">General Details</div>
+  <div class="clearFix"></div>
+  <div class="tableHeader">Manufacturer :<p class="text-info TableDetailsRight"><?=$row['manufacturer']?></p></div>
+  <div class="clearFix"></div>
+  <div class="tableHeader">Brand name : <p class="text-info TableDetailsRight"><?=$row['brand']?></p></div>
+  <div class="clearFix"></div>
+    <div class="tableHeader">Category : <p class="text-info TableDetailsRight"><?=$row['product']?></p></div>
+  <div class="clearFix"></div>
+    <?php 
+    //CPU #############################################################################
+    if($row['product'] == "CPU"){
+  ?>
+  <div class="tableHeaderGeneral">Product Details</div>
+  <div class="clearFix"></div>
+  <div class="tableHeader">Arhitecture : <p class="text-info TableDetailsRight"><?=$row['arhitecture']?></p></div>
+  <div class="clearFix"></div>
+  <div class="tableHeader">FSB (Front Side Buss) : <p class="text-info TableDetailsRight"><?=$row['fsb']?></p></div>
+  <div class="clearFix"></div>
+  <div class="tableHeader">Multiplier : <p class="text-info TableDetailsRight"><?=$row['multiplier']?></p></div>
+  <div class="clearFix"></div>
+  <div class="tableHeader">Number of cores : <p class="text-info TableDetailsRight"><?=$row['core_nr']?></p></div>
+  <div class="clearFix"></div>
+  <div class="tableHeaderSub">Cache</div>
+  <div class="clearFix"></div>
+   <div class="tableHeader">Level 1 : <p class="text-info TableDetailsRight"><?=$row['cache_lvl_1']?> Kb</p></div>
+  <div class="clearFix"></div>
+   <div class="tableHeader">Level 2 : <p class="text-info TableDetailsRight"><?=$row['cache_lvl_2']?> Kb</p></div>
+  <div class="clearFix"></div>
+   <div class="tableHeader">Level 3 : <p class="text-info TableDetailsRight"><?=$row['cache_lvl_3']?> Kb</p></div>
+  <div class="clearFix"></div>
+  <?php }?>
+  <?php 
+  //GPU ###################################################################################
+    if($row['product'] == "GPU"){
+  ?>
+  <div class="tableHeaderGeneral">Product Details</div>
+  <div class="clearFix"></div>
+  <div class="tableHeader">GPU Frequency : <p class="text-info TableDetailsRight"><?=$row['gpu_frec']?> Mhz</p></div>
+  <div class="clearFix"></div>
+  <div class="tableHeader">Shader Frequency : <p class="text-info TableDetailsRight"><?=$row['shader_frec']?></p> Mhz</div>
+  <div class="clearFix"></div>
+  <div class="tableHeader">Memory Capacity : <p class="text-info TableDetailsRight"><?=$row['memory_amount']?></p> MB</div>
+  <div class="clearFix"></div>
+  <div class="tableHeader">Memory Type : <p class="text-info TableDetailsRight"><?=$row['memory_type']?></p></div>
+  <div class="clearFix"></div>
+   <div class="tableHeader">Memory Buss : <p class="text-info TableDetailsRight"><?=$row['memory_bus']?> bit</p></div>
+  <div class="clearFix"></div>
+   <div class="tableHeader">Memory Frequency : <p class="text-info TableDetailsRight"><?=$row['memory_freq']?> Mhz</p></div>
+  <div class="clearFix"></div>
+   <div class="tableHeader">Slot Type : <p class="text-info TableDetailsRight"><?=$row['slot_type']?></p></div>
+  <div class="clearFix"></div>
+     <div class="tableHeader">Aditional Power : <p class="text-info TableDetailsRight"><?=$row['aditional_power']?></p></div>
+  <div class="clearFix"></div>
+  <?php }?>
   
-       
+      
 <?php } }?>
 </div> 
+<ul class="breadcrumb breadFix">
+  <li>Related Products</li>
+</ul>
+<?php          
+    if($this->product>0){
+        foreach($this->product as $row){?>
+<div class="manufacturer">
+<div class="productName">                
+                 <?=$row['name']?>                
+                 </div> 
+              <div class="productContent"> 
+                  <?= substr($row['description'], 0, 200)."..."?>               
+                 </div>  
+                 <div class="productContentURL">   
+              <a href="<?=$this->url('index', array('action' => 'product','product' => $row['product'], 'name' => $row['name'], 'id' => $row['id']));?>">read more</a> 
+              </div> 
+                           
+            </div>
+
+            <?php } }?>  
+
+

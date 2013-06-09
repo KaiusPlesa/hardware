@@ -17,7 +17,7 @@ class Products extends AbstractModel{
         
         $select->quantifier('DISTINCT');
         $select->from(array("a" => $this->tableName));             
-        $select->join(array('b' => $table),'b.id = a.id');
+        $select->join(array('b' => $table),'b.product_id = a.id');
         $select->where(array('a.id='.$id));
      
         

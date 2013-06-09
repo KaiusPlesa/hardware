@@ -5,6 +5,18 @@ function p($misc,$exit = false){
     if($exit) exit;
 }
 
+function imageCheck($image){
+    
+    if($image){
+      $img = SERVER_URL."/img/product_type/".$image;
+      return $img;
+    }else{
+      $img = SERVER_URL."/img/no_img.jpg";
+      return $img;
+    }
+    
+}
+
 function format_time($time = null) {
     if($time) 
         return date("Y-m-d H:i:s", $time);
