@@ -28,11 +28,11 @@ return array(
                 'options' => array(
                     'route'    => '/[:action][/:categorie][/:product][/:name][/:id]',
                     'constraints' => array(
-                    'controller' => '[a-zA-Z][a-zA-Z0-9_-]*',
+                        'controller' => '[a-zA-Z][a-zA-Z0-9_-]*',
                         'action' => '[a-zA-Z][a-zA-Z0-9_-]*',
                         'categorie' => '[a-zA-Z][a-zA-Z0-9_-]*',
-                        'product' => '[a-zA-Z][a-zA-Z0-9_-]*',
-                        //'name' => '[a-z][a-z0-9_]*',
+                        //'product' => '[a-zA-Z][a-zA-Z0-9_-]*',
+                        'name' => '[a-z][a-z0-9_]*',
                         'id'     => '[0-9]+',
                     ),
                     'defaults' => array(
@@ -40,6 +40,16 @@ return array(
                         'action'     => 'index',
                     ),
                 ),
+            ),
+            'parser' => array(
+                'type' => 'Zend\Mvc\Router\Http\Literal',
+                'options' => array(
+                    'route'    => '/parser',
+                    'defaults' => array(
+                        'controller' => 'Application\Controller\Parser',
+                        'action'     => 'index',
+                    ),
+                ),             
             ),
         ),
     ),
@@ -64,7 +74,8 @@ return array(
     ),
     'controllers' => array(
         'invokables' => array(
-            'Application\Controller\Index' => 'Application\Controller\IndexController'
+            'Application\Controller\Index' => 'Application\Controller\IndexController',
+            'Application\Controller\Parser' => 'Application\Controller\ParserController'
         ),
     ),
     'view_manager' => array(
@@ -72,11 +83,13 @@ return array(
         'display_exceptions'       => true,
         'doctype'                  => 'HTML5',
         'not_found_template'       => 'error/404',
+        'not_found_template'       => 'error/500',
         'exception_template'       => 'error/index',
         'template_map' => array(
             'layout/layout'           => __DIR__ . '/../view/layout/layout.phtml',
             'application/index/index' => __DIR__ . '/../view/application/index/index.phtml',
             'error/404'               => __DIR__ . '/../view/error/404.phtml',
+            'error/500'               => __DIR__ . '/../view/error/500.phtml',
             'error/index'             => __DIR__ . '/../view/error/index.phtml',
         ),
         'template_path_stack' => array(

@@ -654,7 +654,6 @@ dd{
 }
 .productsContainer{
     margin-left: 260px;
-    margin-right: 20px;
     word-spacing: -1px;
     line-height: 20px;
     text-align: justify;
@@ -662,8 +661,7 @@ dd{
     border: solid 1px rgb(228, 225, 225);
     background-color: rgb(255, 255, 255);
     padding: 20px;
-    position: absolute;
-    float: left;
+    height: 800px;
 }
 .sidebarProductName{
     border-bottom: solid 1px #ccc;
@@ -760,6 +758,8 @@ dd{
     border: solid 1px rgb(219, 219, 219); 
 }
 .TableDetailsRight{
+    width:300px;
+    text-align: left;
     float:right;
 }
 .clearFix{

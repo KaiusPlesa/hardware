@@ -1,0 +1,66 @@
+
+        <div class="navbar navbar-inverse navbar-fixed-top">
+            <div class="navbar-inner">
+                <div class="container">
+                    <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </a>
+                    <a class="brand" href="<?php echo $this->url('home') ?>"></a>
+                    <div class="nav-collapse collapse">
+                    
+                    <?php //dropdown menu ?>
+                    <ul class="nav">
+                    <li class="active"><a href="<?php echo $this->url('home') ?>"><?php echo $this->translate('Home') ?></a></li>
+                      <li class="dropdown active" id="menu1">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#menu1">
+                          Categories
+                          <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                        
+                          <li><a class="active" href="<?php echo $this->url('index', array('action' => 'categories','categorie'=>'Hardware')) ?>"><?php echo $this->translate('Hardware') ?></a></li>
+                          <li><a class="active" href="<?php echo $this->url('index', array('action' => 'categories','categorie'=>'Software')) ?>"><?php echo $this->translate('Software') ?></a></li>                                                 
+                      </ul>
+                      </li>
+                      
+                        <li class="dropdown active" id="menu1">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#menu3">
+                          Products
+                          <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                        <li class="dropdown-submenu">
+                             <a tabindex="-1" class="active" href="<?php echo $this->url('index', array('action' => 'products','categorie' => 'AllProducts')) ?>"><?php echo $this->translate('All Products') ?></a>   
+                 
+                    <ul class="dropdown-menu">
+                      <li><a class="active" href="<?php echo $this->url('index', array('action' => 'products','categorie' => 'CPU')) ?>"><?php echo $this->translate('CPU') ?></a></li>
+                          <li><a class="active" href="<?php echo $this->url('index', array('action' => 'products','categorie' => 'GPU')) ?>"><?php echo $this->translate('GPU') ?></a></li> 
+                           <li><a class="active" href="<?php echo $this->url('index', array('action' => 'products','categorie' => 'MB')) ?>"><?php echo $this->translate('Motherboard') ?></a></li>                     
+                            <li><a class="active" href="<?php echo $this->url('index', array('action' => 'products','categorie' => 'RAM')) ?>"><?php echo $this->translate('Memmory') ?></a></li>    
+                            <li><a class="active" href="<?php echo $this->url('index', array('action' => 'products','categorie' => 'Display')) ?>"><?php echo $this->translate('Display') ?></a></li>
+                            <li><a class="active" href="<?php echo $this->url('index', array('action' => 'products','categorie' => 'OS')) ?>"><?php echo $this->translate('Operating Sistems') ?></a></li>
+                          
+                    </ul>
+                  </li>
+                  
+                          
+                        </ul>
+                      </li> 
+                      
+                      <?php if($this->zfcUserIdentity()){?>                          
+                            <li class="active"><a href="<?php echo $this->url('zfcuser/logout') ?>"><?php echo $this->translate('Logout') ?></a></li>
+                            <li class="active"><a href="<?php echo $this->url('zfcuser/profile') ?>"><?php echo $this->translate('Profile') ?></a></li>
+                            <?php }?>
+                            <?php if(!$this->zfcUserIdentity()){?>
+                              <li class="active"><a href="<?php echo $this->url('zfcuser/register') ?>"><?php echo $this->translate('Sign Up') ?></a></li>
+                            <li class="active"><a href="<?php echo $this->url('zfcuser/login') ?>"><?php echo $this->translate('Sign In') ?></a></li>
+                             <?php }?>
+                                     
+                   
+                    </ul>
+                    </div><!--/.nav-collapse -->
+                </div>
+            </div>
+        </div>

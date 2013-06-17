@@ -109,7 +109,7 @@ $settings = array(
      * Determines if a captcha should be utilized on the user registration form.
      * Default value is false.
      */
-    'use_registration_form_captcha' => false,
+    'use_registration_form_captcha' => true,
 
     /**
      * Form Captcha Options
@@ -118,14 +118,14 @@ $settings = array(
      * this to configure which Zend\Captcha adapter to use, and the options to
      * pass to it. The default uses the Figlet captcha.
      */
-    /*'form_captcha_options' => array(
-        'class'   => 'figlet',
+    'form_captcha_options' => array(
+        'class'   => 'dumb',
         'options' => array(
             'wordLen'    => 5,
             'expiration' => 300,
             'timeout'    => 300,
         ),
-    ),*/
+    ),
 
     /**
      * Use Redirect Parameter If Present

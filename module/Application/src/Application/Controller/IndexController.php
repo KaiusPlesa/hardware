@@ -80,12 +80,13 @@ class IndexController extends AbstractActionController{
         return new ViewModel($data);
     }
     // OK    
-    public function productAction(){
-                                   
+    public function productAction(){                                 
+            
         $id = $this->params()->fromRoute('id');
         $table = $this->params()->fromRoute('categorie');
         $product_details = $this->getServiceLocator()->get("ZeDbManager")->get('Application\Model\Products');
         $product_type = $product_details->getProductDetails($id, $table);
+
         $product = $product_details->getAllByProduct($table);
 
         $data['product_details'] = $product_type;

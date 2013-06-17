@@ -14,19 +14,18 @@ class Products extends AbstractModel{
         
         $sql = new Sql($this->adapter);       
         $select = $sql->select();
-        
+
         $select->quantifier('DISTINCT');
         $select->from(array("a" => $this->tableName));             
         $select->join(array('b' => $table),'b.product_id = a.id');
         $select->where(array('a.id='.$id));
-     
-        
+
         $statement = $sql->prepareStatementForSqlObject($select);
         $countries = $statement->execute();
-        
+
         $resultSet = new ResultSet();
         $resultSet->initialize($countries);
-        
+
         //echo $select->getSqlString();
         //p($resultSet->toArray());
         //exit;
